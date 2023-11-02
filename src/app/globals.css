@@ -16,9 +16,9 @@
 
 /* GLOBALS */
 
-html, body {
+/* html, body {
   height: 100%;
-}
+} */
 
 body {
   display: flex;
@@ -62,4 +62,11 @@ a.hover-underline-animation:hover::after {
   left: 0;
 }
 
+.section-class-name {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
 
