@@ -11,8 +11,8 @@ const ScrollIndicator: React.FC<Props> = ({ totalSections, currentSection }) => 
       {Array.from({ length: totalSections }).map((_, index) => (
         <div
           key={index}
-          className={`w-3 h-3 mb-2 rounded-full transition duration-300 ${
-            index + 1 === currentSection ? 'bg-gray-800' : 'bg-gray-400'
+          className={`w-3 h-3 mb-2 rounded-full transition duration-200 ${
+            index + 1 === currentSection ? 'bg-gray-800' : 'bg-gray-200'
           }`}
         ></div>
       ))}

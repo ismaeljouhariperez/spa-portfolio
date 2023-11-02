@@ -14,6 +14,8 @@
   }
 }
 
+/* GLOBALS */
+
 html, body {
   height: 100%;
 }
@@ -32,4 +34,32 @@ main {
 footer {
   flex-shrink: 0;
 }
+
+p, a, ul, li, button{
+  font-weight:300;
+}
+
+/* NAVIGATION */
+
+a.hover-underline-animation {
+  position: relative;
+  display: inline-block;
+}
+
+a.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: currentColor; /* color of the underline */
+  transition: width 0.5s ease, left 0.5s ease; /* 500ms duration as requested */
+}
+
+a.hover-underline-animation:hover::after {
+  width: 100%;
+  left: 0;
+}
+
 
