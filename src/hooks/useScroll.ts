@@ -1,34 +1,36 @@
-"use client";
+'use client';
 
 import { useState, useEffect } from 'react';
 import { scroller } from 'react-scroll';
 
 const useScroll = (totalSections: number) => {
-  const isClient = typeof document !== 'undefined';
-
-  const determineCurrentSection = (): number => {
-    if (!isClient) return 1;
-
-    for (let i = 1; i <= totalSections; i++) {
-      const sectionElement = document.getElementById(`section-${i}`);
-
-      if (sectionElement && sectionElement.getBoundingClientRect().top <= window.innerHeight / 2 && sectionElement.getBoundingClientRect().bottom >= window.innerHeight / 2) {
-        return i;
-      }
-    }
-
-    console.warn("No section detected in the viewport. Defaulting to section 1.");
-    return 1;
-  };
-
-  const [currentSection, setCurrentSection] = useState<number>(determineCurrentSection());
+  const [currentSection, setCurrentSection] = useState<number>(1);
   const [canScroll, setCanScroll] = useState<boolean>(true);
 
+  const determineCurrentSection = (): number => {
+    let closestSection = 1;
+    let smallestDistance = Infinity;
+  
+    for (let i = 1; i <= totalSections; i++) {
+      const sectionElement = document.getElementById(`section-${i}`);
+      if (sectionElement) {
+        const distanceToTop = Math.abs(sectionElement.getBoundingClientRect().top);
+        if (distanceToTop < smallestDistance) {
+          smallestDistance = distanceToTop;
+          closestSection = i;
+        }
+      }
+    }
+  
+    if (smallestDistance === Infinity) {
+      console.warn("No section detected in the viewport. Defaulting to section 1.");
+      return 1;
+    }
+
+    return closestSection;
+  };
+
   useEffect(() => {
-    if (!isClient) return;
-
-    setCurrentSection(determineCurrentSection());
-
     const handleScroll = (e: WheelEvent) => {
       e.preventDefault();
 
@@ -62,8 +64,6 @@ const useScroll = (totalSections: number) => {
   };
 
   const scrollToSection = (sectionNumber: number) => {
-    if (!isClient) return;
-
     setCanScroll(false);
     scroller.scrollTo(`section-${sectionNumber}`, {
       duration: 1000,
@@ -74,6 +74,10 @@ const useScroll = (totalSections: number) => {
       setCanScroll(true);
     }, 1000);
   };
+
+  useEffect(() => {
+    setCurrentSection(determineCurrentSection());
+  }, []);
 
   return { currentSection, scrollNext, scrollPrev, canScroll };
 };
