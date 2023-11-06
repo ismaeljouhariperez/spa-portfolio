@@ -1,8 +1,8 @@
 import React from 'react';
 import Logo from './Logo';
 import NavLinks from './NavLinks';
-import DarkModeToggle from './DarkModeToggle.client';
-import LanguageToggle from './LanguageToggle.client';
+import DarkModeToggle from './DarkModeToggle';
+import LanguageToggle from './LanguageToggle';
 
 const Header: React.FC = () => {
   return (

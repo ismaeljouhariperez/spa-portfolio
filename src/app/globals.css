@@ -14,12 +14,6 @@
   }
 }
 
-/* GLOBALS */
-
-/* html, body {
-  height: 100%;
-} */
-
 body {
   display: flex;
   flex-direction: column;
@@ -68,5 +62,11 @@ a.hover-underline-animation:hover::after {
   justify-content: center;
   align-items: center;
   overflow: auto;
+}
+
+/* FIRST SECTION */
+
+h2{
+  font-weight: 300;
 }
 
