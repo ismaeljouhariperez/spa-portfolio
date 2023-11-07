@@ -11,7 +11,7 @@ const Header: React.FC = () => {
       <NavLinks />
       <div className="flex items-center">
         <DarkModeToggle />
-        <LanguageToggle />
+        {/* <LanguageToggle /> */}
       </div>
     </header>
   );

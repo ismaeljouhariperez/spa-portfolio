@@ -1,6 +1,5 @@
 'use client'; 
 import React, { useState } from 'react';
-
 const LanguageToggle: React.FC = () => {
     const [language, setLanguage] = useState<'en' | 'fr'>('fr');
 
@@ -30,6 +29,4 @@ const LanguageToggle: React.FC = () => {
             </button>
         </div>
     );
-};
-
-export default LanguageToggle;
+}; export default LanguageToggle;
