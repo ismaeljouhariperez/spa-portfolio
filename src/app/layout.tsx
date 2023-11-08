@@ -1,14 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@/app/globals.css';
-
 // import { dir } from 'i18next';
 import { languages } from './i18n/settings';
 
 const inter = Inter({ subsets: ['latin'] });
-
-// If you're using this function to generate paths for Next.js' `getStaticPaths`,
-// you'll likely want to type the return value to match Next.js' requirements.
 export async function generateStaticParams(): Promise<{ params: { lng: string } }[]> {
   return languages.map((lng) => ({ params: { lng } }));
 }
@@ -16,7 +12,7 @@ export async function generateStaticParams(): Promise<{ params: { lng: string } 
 interface RootLayoutProps {
   children: React.ReactNode;
   params: {
-    lng: string; // Assuming lng is a string representing the language code
+    lng: string; // 'en' | 'fr'
   };
 }
 
@@ -35,5 +31,4 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children, params: { lng } }) =>
     </html>
   );
 }
-
 export default RootLayout;

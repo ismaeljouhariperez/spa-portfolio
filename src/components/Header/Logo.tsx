@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-function Logo() {
+const Logo = () => {
     return (
       <div>
        <Image

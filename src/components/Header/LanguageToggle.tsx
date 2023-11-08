@@ -1,7 +1,19 @@
 'use client'; 
-import React, { useState } from 'react';
-const LanguageToggle: React.FC = () => {
-    const [language, setLanguage] = useState<'en' | 'fr'>('fr');
+
+import React from 'react';
+import Link from 'next/link';
+import { Trans } from 'react-i18next';
+import { languages } from '@/app/i18n/settings';
+import { useTranslation } from '@/app/i18n';
+
+import { useState } from 'react';
+
+interface LanguageToggleProps {
+  currentLanguage: string;
+}
+
+const LanguageToggle: React.FC<LanguageToggleProps> = ({ currentLanguage }) => {
+  const [language, setLanguage] = useState<'en' | 'fr'>('fr');
 
     const handleEnglishClick = () => {
         setLanguage('en');
@@ -9,24 +21,39 @@ const LanguageToggle: React.FC = () => {
     const handleFrenchClick = () => {
         setLanguage('fr');
     };
-    return (
-        <div>
-             <button
-                className={`px-4 py-2  ${
-                    language === 'fr' ? 'text-white' : 'bg-gray-200 text-gray-700 hover:text-white hover:bg-black transition duration-500'
-                }`}
-                onClick={handleFrenchClick}
-            >
-                FR
-            </button>
-            <button
-                className={`px-4 py-2  ${
-                    language === 'en' ? 'text-white' : 'bg-gray-200 text-gray-700 hover:text-white hover:bg-black transition duration-500'
+  const { t, i18n } = useTranslation(currentLanguage, 'translation');
+    if (!t) {
+      return <p>Traductions en cours...</p>;
+    }
+
+  return (
+    <div className="flex items-center">
+      <Trans i18nKey="languageSwitcher" t={t}>
+        {/* Switch from <strong>{currentLanguage}</strong> to:{' '} */}
+        <button
+          className={`px-4 py-2 text-white'
+          }`}
+          onClick={handleFrenchClick}
+        >
+        {currentLanguage.toUpperCase()}
+        </button>
+      </Trans>
+      {languages.filter((l) => currentLanguage !== l).map((l, index) => (
+        <span key={l} >
+          {index > 0 && ' or '}
+          <Link href={`/${l}`} passHref>
+          <button
+                className={`px-4 py-2 text-white'
                 }`}
                 onClick={handleEnglishClick}
             >
-                EN
+                {l.toUpperCase()}
             </button>
-        </div>
-    );
-}; export default LanguageToggle;
+          </Link>
+        </span>
+      ))}
+    </div>
+  );
+};
+
+export default LanguageToggle;

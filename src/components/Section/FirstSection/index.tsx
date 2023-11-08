@@ -1,7 +1,14 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
-const FirstSection: React.FC = () => {
+interface Props {
+  params: {
+    lng: string;
+  };
+}
+
+const FirstSection: React.FC<Props> = ({ params : lng }) => {
+  console.log(lng)
   return (
     <div className='w-11/12 flex flex-col	'>
       <h2 className="text-7xl text-white-200 my-4 ">

@@ -1,4 +1,9 @@
 {
-    "title": "bonjour",
-    "to-second-page": "To second page"
-  }
+  "nav.clients"   : "Clients",
+  "nav.projects"  : "Projets",
+  "nav.profile"   : "Profil",
+  "nav.contact"   : "Contact"
+}
+
+
+ 
