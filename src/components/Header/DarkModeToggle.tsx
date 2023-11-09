@@ -3,13 +3,19 @@
 import { useState } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 
-const DarkModeToggle = () => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+interface DarkModeToggleProps {
+    isDarkMode: boolean;
+    toggleDarkMode: () => void;
+  }
 
-    const toggleDarkMode = () => {
-        setIsDarkMode(!isDarkMode);
-        document.documentElement.classList.toggle("dark");
-    };
+const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ isDarkMode, toggleDarkMode }) => {
+    // const [isDarkMode, setIsDarkMode] = useState(false);
+
+    // const toggleDarkMode = () => {
+    //     setIsDarkMode(!isDarkMode);
+    //     document.documentElement.classList.toggle("dark");
+    //     document.body.classList.toggle("dark");
+    // };
 
     return (
         <button

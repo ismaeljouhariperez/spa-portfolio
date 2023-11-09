@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import '@/app/globals.css';
 // import { dir } from 'i18next';
 import { languages } from './i18n/settings';
+import GrainBackground from '@/components/grain';
 
 const inter = Inter({ subsets: ['latin'] });
 export async function generateStaticParams(): Promise<{ params: { lng: string } }[]> {
@@ -25,7 +26,8 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children, params: { lng } }) =>
   return (
     <html lang={lng}>
     {/* <html lang={lng} dir={dir(lng) as 'ltr' | 'rtl'}> */}
-      <body className={inter.className}>
+      <body className={`grain-overlay transition duration-700 ease-in-out ${inter.className}`}>
+        <GrainBackground />
         {children}
       </body>
     </html>

@@ -8,7 +8,8 @@ interface NavLinkProps {
   const NavLinks = ({ lng }: NavLinkProps): ReactElement => {
     const { t, i18n } = useTranslation(lng, 'translation');
     if (!t) {
-      return <p>Traductions en cours...</p>;
+      return <svg className="animate-spin h-5 w-5 mr-3 bg-white " viewBox="0 0 24 24"></svg>
+      // return <p>Traductions en cours...</p>;
     }
     
   return (

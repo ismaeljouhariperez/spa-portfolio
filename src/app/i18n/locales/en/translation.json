@@ -1,8 +1,13 @@
 {
-    "nav.clients"   : "Clients",
-    "nav.projects"  : "Projects",
-    "nav.profile"   : "Profile",
-    "nav.contact"   : "Contact"
+    "nav.clients"       : "Clients",
+    "nav.projects"      : "Projects",
+    "nav.profile"       : "Profile",
+    "nav.contact"       : "Contact",
+    "section.first.h2"  : "Hello World, I'm Ismaël.",
+    "section.first.h3"  : "Full stack developer.",
+    "section.first.p"   : "I'm currently learning Next, Laravel, Typescript and React and I'm looking for a full-time job.",
+    "section.first.btn" : "Contact me"
+
 }
   
 

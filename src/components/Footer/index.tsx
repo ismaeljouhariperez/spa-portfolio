@@ -7,7 +7,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ isLastSection }) => {
-  const footerClassName = `flex fixed bottom-0 w-screen justify-center items-center h-16 transition-bg duration-500 delay-500 ${
+  const footerClassName = `z-10 flex fixed bottom-0 w-screen justify-center items-center h-16 transition-bg duration-500 delay-500 ${
     isLastSection ? 'bg-gray-200' : ' '
   }`;
 
