@@ -12,7 +12,7 @@ const ProjectImage: React.FC<ImageProps> = ({name, image }) => {
     }
 
     return (
-        <figure className={`absolute hidden group-hover:block ${name}-hover-target top-0`}>
+        <figure className={`absolute transition duration-500 transition-opacity opacity-0 group-hover:opacity-100 ${name}-hover-target`}>
             <Image 
                 src={image} 
                 alt={name} 

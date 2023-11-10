@@ -15,13 +15,12 @@ const GrainBackground: React.FC = () => {
               type="fractalNoise" 
               baseFrequency="20" 
               numOctaves="3" 
-              stitchTiles="nostitch" 
             />
           </filter>
   
           <rect
-            width="100%" 
-            height="100%" 
+            // width="100vw" 
+            // height="200vh" 
             filter="url(#noiseFilter)" 
           />
         </svg>

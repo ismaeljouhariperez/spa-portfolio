@@ -1,6 +1,4 @@
 "use client";  // This is a client component
-
-import { useState } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 
 interface DarkModeToggleProps {
@@ -22,11 +20,16 @@ const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ isDarkMode, toggleDarkM
             className="flex items-center justify-center w-10 h-10 rounded-full focus:outline-none mx-4 transition-all duration-1000"
             onClick={toggleDarkMode}
         >
-            {isDarkMode ? (
-                <SunIcon className="w-6 h-6 text-yellow-500 hover:text-gray-500 transition duration-500" />
-            ) : (
-                <MoonIcon className="w-6 h-6 text-gray-500 hover:text-yellow-500 transition duration-500" />
+              {isDarkMode ? (
+                <MoonIcon className="w-6 h-6 text-yellow-500 transition duration-700" />
+                ) : (
+                <MoonIcon className="w-6 h-6 text-gray-500 transition duration-700" />
             )}
+            {/* {isDarkMode ? (
+                <SunIcon className="w-6 h-6 text-yellow-500 hover:text-gray-500 transition duration-700" />
+            ) : (
+                <MoonIcon className="w-6 h-6 text-gray-500 hover:text-yellow-500 transition duration-700" />
+            )} */}
         </button>
     );
 };
