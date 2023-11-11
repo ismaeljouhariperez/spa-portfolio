@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children, params: { lng } }) => {
   return (
-    <html lang={lng}>
+    <html lang={lng} >
     {/* <html lang={lng} dir={dir(lng) as 'ltr' | 'rtl'}> */}
       <body className={`grain-overlay transition duration-700 ease-in-out ${inter.className}`}>
         <GrainBackground />

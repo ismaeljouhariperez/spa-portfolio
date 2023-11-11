@@ -11,6 +11,6 @@ export function getOptions(lng: string = fallbackLng, ns: string = defaultNS) {
     lng,
     fallbackNS: defaultNS,
     defaultNS,
-    ns
+    ns,
   };
 }
