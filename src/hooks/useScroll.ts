@@ -7,6 +7,22 @@ const useScroll = (totalSections: number) => {
   const [currentSection, setCurrentSection] = useState<number>(1);
   const [canScroll, setCanScroll] = useState<boolean>(true);
 
+  const navigateToSection = (sectionId) => {
+    const sectionNumber = typeof sectionId === 'string' ? parseInt(sectionId.split('-')[1], 10) : sectionId;
+    setCurrentSection(sectionNumber); // Update the current section
+    setCanScroll(false);
+
+    scroller.scrollTo(`section-${sectionNumber}`, {
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+    });
+
+    setTimeout(() => {
+      setCanScroll(true);
+    }, 800);
+  };
+
   const determineCurrentSection = (): number => {
     let closestSection = 1;
     let smallestDistance = Infinity;
@@ -79,7 +95,7 @@ const useScroll = (totalSections: number) => {
     setCurrentSection(determineCurrentSection());
   }, []);
 
-  return { currentSection, scrollNext, scrollPrev, canScroll };
+  return { currentSection, scrollNext, scrollPrev, canScroll, navigateToSection };
 };
 
 export default useScroll;
