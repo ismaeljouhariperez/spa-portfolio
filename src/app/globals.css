@@ -59,25 +59,25 @@ svg.grain-background, rect {
 
 /* NAVIGATION */
 
-a.hover-underline-animation {
+
+.hover-underline-animation, .underline-animation {
   position: relative;
   display: inline-block;
 }
 
-a.hover-underline-animation::after {
+.hover-underline-animation::after, .underline-animation::after {
   content: '';
   position: absolute;
   width: 0;
   height: 2px;
   bottom: 0;
-  left: 50%;
+  left: 0; /* Start from the left */
   background-color: currentColor; /* color of the underline */
-  transition: width 0.5s ease, left 0.5s ease; /* 500ms duration as requested */
+  transition: width 0.5s ease; /* Transition only the width */
 }
 
-a.hover-underline-animation:hover::after {
-  width: 100%;
-  left: 0;
+.hover-underline-animation:hover::after, .underline-animation::after {
+  width: 100%; /* Expand to full width on hover */
 }
 
 .section-class-name {
@@ -87,6 +87,7 @@ a.hover-underline-animation:hover::after {
   align-items: center;
   overflow: auto;
 }
+
 
 /* SECOND SECTION PROJECTS */
 
