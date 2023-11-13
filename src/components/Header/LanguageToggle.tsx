@@ -42,7 +42,7 @@ const LanguageToggle: React.FC<LanguageToggleProps> = ({ currentLanguage }) => {
           {/* {index > 0 && ' or '} */}
           <Link href={`/${l}`} passHref>
           <button
-                className={`px-4 py-2 text-white'
+                className={`cta cta-active px-4 py-2 text-white'
                 }`}
                 onClick={handleEnglishClick}
             >

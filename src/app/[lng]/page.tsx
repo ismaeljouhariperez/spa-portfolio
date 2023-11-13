@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import useScroll from '@/hooks/useScroll';
 import FirstSection from '@/components/Section/FirstSection';
 import ProjectsSection from '@/components/Section/SecondSection';
+import ProfileSection from '@/components/Section/ThirdSection';
 
 interface HomepageProps {
   params: {
@@ -24,11 +25,11 @@ const Homepage = ({ params: { lng } }: HomepageProps): ReactElement => {
   };
 
   const sections = [
-    <SectionComponent key="section-1" sectionId="section-1">
-        <FirstSection key="section-1" lng={lng} />
-    </SectionComponent>,
+    <SectionComponent key="section-1" sectionId="section-1"><FirstSection lng={lng} /></SectionComponent>,
     <SectionComponent key="section-2" sectionId="section-2"><ProjectsSection /></SectionComponent>,
-    <SectionComponent key="section-3" sectionId="section-3">Section 3</SectionComponent>
+    <SectionComponent key="section-3" sectionId="section-3"><ProfileSection lng={lng}/></SectionComponent>,
+    <SectionComponent key="section-4" sectionId="section-4">Section 4</SectionComponent>,
+    <SectionComponent key="section-5" sectionId="section-5">Section 5</SectionComponent>,
   ];
   const totalSections = React.Children.count(sections);
   const { currentSection, navigateToSection} = useScroll(totalSections);

@@ -3,9 +3,9 @@
   "nav.projects"        : "Projets",
   "nav.profile"         : "Profil",
   "nav.contact"         : "Contact",
-  "section.first.h2"    : "Bonjour, je m'appelle Ismaël.",
-  "section.first.h3"    : "Full Stack Developer & Photographe",
-  "section.first.p"     : "Je me forme actuellement sur Next, Laravel, Typescript et React et je suis à la recherche d'une opportunité à durée indéterminée.",
+  "section.first.h2"    : "Bienvenue, ici Ismaël.",
+  "section.first.h3"    : "Full Stack Developer",
+  "section.first.p"     : "En formation sur Next, Typescript et React. Ouvert à de nouvelles opportunités.",
   "section.first.btn"   : "Me Contacter"
 }
 

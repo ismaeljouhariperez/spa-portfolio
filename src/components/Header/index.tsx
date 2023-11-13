@@ -15,7 +15,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ lng, isDarkMode, toggleDarkMode, currentSection, navigateToSection }) => {
   return (
     <header className="z-30 fixed top-0 left-0 w-full text-white z-10 flex justify-between items-center py-4 px-8">
-      <Logo />
+      <Logo currentSection={ currentSection } />
       <NavLinks lng={lng} currentSection={currentSection} navigateToSection={navigateToSection}/>
       <div className="flex items-center">
         <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
