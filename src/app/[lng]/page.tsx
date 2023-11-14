@@ -8,6 +8,7 @@ import useScroll from '@/hooks/useScroll';
 import FirstSection from '@/components/Section/FirstSection';
 import ProjectsSection from '@/components/Section/SecondSection';
 import ProfileSection from '@/components/Section/ThirdSection';
+import SkillsSection from '@/components/Section/FourthSection';
 
 interface HomepageProps {
   params: {
@@ -28,7 +29,7 @@ const Homepage = ({ params: { lng } }: HomepageProps): ReactElement => {
     <SectionComponent key="section-1" sectionId="section-1"><FirstSection lng={lng} /></SectionComponent>,
     <SectionComponent key="section-2" sectionId="section-2"><ProjectsSection /></SectionComponent>,
     <SectionComponent key="section-3" sectionId="section-3"><ProfileSection lng={lng}/></SectionComponent>,
-    <SectionComponent key="section-4" sectionId="section-4">Section 4</SectionComponent>,
+    <SectionComponent key="section-4" sectionId="section-4"><SkillsSection lng={lng}></SkillsSection></SectionComponent>,
     <SectionComponent key="section-5" sectionId="section-5">Section 5</SectionComponent>,
   ];
   const totalSections = React.Children.count(sections);

@@ -6,8 +6,20 @@
     "section.first.h2"  : "Hello World, I'm Ismaël.",
     "section.first.h3"  : "Full stack developer.",
     "section.first.p"   : "Currently learning Next, Typescript and React. Open to work. Based in France.",
-    "section.first.btn" : "Contact me"
-
+    "section.first.btn" : "Contact me",
+    "profile.pastlives" : [
+        "Fast",
+        "Scalable",
+        "Potato",
+        "Cabbage",
+        "Cucumber",
+        "Tomato"
+      ],
+    "profile.cv" :[
+      "Download",
+      "My Resume"
+    ],
+    "profile.about" : "About me"
 }
   
 

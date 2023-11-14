@@ -6,7 +6,19 @@
   "section.first.h2"    : "Bienvenue, ici Ismaël.",
   "section.first.h3"    : "Full Stack Developer",
   "section.first.p"     : "En formation sur Next, Typescript et React. Ouvert à de nouvelles opportunités.",
-  "section.first.btn"   : "Me Contacter"
+  "section.first.btn"   : "Me Contacter",
+  "profile.pastlives" : [
+    "étudiant",
+    "stagiaire",
+    "chef de projet",
+    "co-manager",
+    "photographe"
+  ],
+  "profile.cv" :[
+     "Télécharger",
+     "Mon CV"
+  ],
+  "profile.about": "À propos de moi"
 }
 
 
