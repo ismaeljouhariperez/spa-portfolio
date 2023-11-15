@@ -3,7 +3,6 @@
 
 import React, { useState, useEffect } from "react";
 import ReactTextTransition, { presets } from "react-text-transition";
-
 import getRandomNumber from '@/utils/getRandomNumber';
 import { useTranslation } from "@/app/i18n"; // Import useTranslation correctly
 
@@ -15,8 +14,8 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ lng }) => {
    // Initialize state here
    const [textIndex, setTextIndex] = useState(0);
    const { t } = useTranslation(lng, 'translation');
-   const about = t ? t('profile.about', { returnObjects: true }) : [];
-   const resume = t ? t('profile.cv', { returnObjects: true }) : [];
+  //  const about = t ? t('profile.about', { returnObjects: true }) : [];
+  //  const resume = t ? t('profile.cv', { returnObjects: true }) : [];
    const pastLives = t ? t('profile.pastlives', { returnObjects: true }) : [];
  
    // Effect for setting the random text index

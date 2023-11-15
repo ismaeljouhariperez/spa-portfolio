@@ -1,11 +1,18 @@
 import React from 'react';
 import { useTranslation } from '@/app/i18n';
 
+// types.ts
+export type SkillsList = {
+    name: string;
+    technologies: string[];
+  };
+
 type SkillsProps = {
-  lng: string;
+    categories: SkillsList[];
+    lng: string;
 };
 
-const SkillsSection: React.FC<SkillsProps> = ({ lng }) => {
+const SkillsSection: React.FC<SkillsProps> = ({ categories, lng }) => {
     const { t } = useTranslation(lng, 'translation');
     
     return (

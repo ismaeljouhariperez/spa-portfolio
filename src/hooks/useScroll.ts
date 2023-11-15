@@ -4,98 +4,70 @@ import { useState, useEffect } from 'react';
 import { scroller } from 'react-scroll';
 
 const useScroll = (totalSections: number) => {
-  const [currentSection, setCurrentSection] = useState<number>(1);
-  const [canScroll, setCanScroll] = useState<boolean>(true);
+  const [currentSection, setCurrentSection] = useState(1);
+  const [canScroll, setCanScroll] = useState(true);
+  const ScrollDuration = 1000;
 
-  const navigateToSection = (sectionId) => {
-    const sectionNumber = typeof sectionId === 'string' ? parseInt(sectionId.split('-')[1], 10) : sectionId;
-    setCurrentSection(sectionNumber); // Update the current section
-    setCanScroll(false);
-
+  // Helper function to scroll to a section
+  const scrollToSection = (sectionNumber: number) => {
     scroller.scrollTo(`section-${sectionNumber}`, {
-      duration: 800,
+      duration: ScrollDuration,
       delay: 0,
       smooth: 'easeInOutQuart',
     });
-
-    setTimeout(() => {
-      setCanScroll(true);
-    }, 800);
   };
 
-  const determineCurrentSection = (): number => {
-    let closestSection = 1;
-    let smallestDistance = Infinity;
-  
-    for (let i = 1; i <= totalSections; i++) {
-      const sectionElement = document.getElementById(`section-${i}`);
-      if (sectionElement) {
-        const distanceToTop = Math.abs(sectionElement.getBoundingClientRect().top);
-        if (distanceToTop < smallestDistance) {
-          smallestDistance = distanceToTop;
-          closestSection = i;
-        }
-      }
-    }
-  
-    if (smallestDistance === Infinity) {
-      console.warn("No section detected in the viewport. Defaulting to section 1.");
-      return 1;
-    }
+  // Navigate to a section with optional click bypass
+  const navigateToSection = (sectionId: string | number, clicked: boolean = false) => {
+    if (!canScroll && !clicked) return;
 
-    return closestSection;
+    const sectionNumber = typeof sectionId === 'string' ? parseInt(sectionId.split('-')[1], 10) : sectionId;
+    setCurrentSection(sectionNumber);
+    scrollToSection(sectionNumber);
+
+    if (!clicked) {
+      // Temporarily disable scroll after navigation
+      setCanScroll(false);
+      setTimeout(() => {
+        setCanScroll(true);
+      }, ScrollDuration);
+    }
   };
 
+  // Handle wheel scroll event
   useEffect(() => {
     const handleScroll = (e: WheelEvent) => {
       e.preventDefault();
-
       if (!canScroll) return;
 
-      if (e.deltaY > 0 && currentSection < totalSections) {
-        scrollNext();
-      } else if (e.deltaY < 0 && currentSection > 1) {
-        scrollPrev();
-      }
+      const direction = e.deltaY > 0 ? 1 : -1;
+      const targetSection = Math.min(Math.max(currentSection + direction, 1), totalSections);
+      navigateToSection(targetSection);
     };
 
     window.addEventListener('wheel', handleScroll, { passive: false });
-    return () => window.removeEventListener('wheel', handleScroll);
-  }, [currentSection, canScroll]);
 
-  const scrollNext = () => {
-    setCurrentSection(prev => {
-      const nextSection = prev + 1;
-      scrollToSection(nextSection);
-      return nextSection;
-    });
-  };
+    return () => {
+      window.removeEventListener('wheel', handleScroll);
+    };
+  }, [currentSection, canScroll, totalSections]);
 
-  const scrollPrev = () => {
-    setCurrentSection(prev => {
-      const prevSection = prev - 1;
-      scrollToSection(prevSection);
-      return prevSection;
-    });
-  };
-
-  const scrollToSection = (sectionNumber: number) => {
-    setCanScroll(false);
-    scroller.scrollTo(`section-${sectionNumber}`, {
-      duration: 1000,
-      delay: 0,
-      smooth: "easeInOutQuart"
-    });
-    setTimeout(() => {
-      setCanScroll(true);
-    }, 1000);
-  };
-
+  // Determine the current section based on scroll position
   useEffect(() => {
-    setCurrentSection(determineCurrentSection());
+    const handleScrollPosition = () => {
+      // Implement logic to determine the section based on scroll position
+      // This can be done by checking the scroll position relative to the top of the document
+      // and updating the currentSection state accordingly.
+    };
+
+    window.addEventListener('scroll', handleScrollPosition);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollPosition);
+    };
   }, []);
 
-  return { currentSection, scrollNext, scrollPrev, canScroll, navigateToSection };
+  return { currentSection, navigateToSection };
 };
 
 export default useScroll;

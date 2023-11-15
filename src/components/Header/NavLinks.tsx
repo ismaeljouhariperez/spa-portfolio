@@ -20,10 +20,9 @@ const NavLinks = ({ lng, currentSection, navigateToSection }: NavLinkProps): Rea
     { id: 'section-5', label: 'nav.contact' },
   ];
 
-  const handleClick = (sectionId) => (e) => {
+  const handleClick = (sectionId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    navigateToSection(sectionId);
-    console.log('current :', currentSection);
+    navigateToSection(sectionId, true); // Pass true to indicate it's a click event
   };
 
   return (
