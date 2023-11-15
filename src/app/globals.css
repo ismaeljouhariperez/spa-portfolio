@@ -181,7 +181,6 @@ ul.menu li::before {
   background: linear-gradient(45deg, rgb(455,455,455), white);
 }
 
-
 /* 
 .menu__item-0:before {
   background: linear-gradient(45deg, #FF97B7, #FFC8DD);
@@ -246,6 +245,12 @@ ul.menu li:hover {
 
 ul.menu li:hover svg{
   transform: translate3d(0.2em, -0.2em, -0.2em);
+}
+
+/* FOURTH SECTION */
+
+#section-4{
+  width: 100vw;
 }
 
 

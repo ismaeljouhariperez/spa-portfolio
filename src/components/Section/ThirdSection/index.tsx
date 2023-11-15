@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from "react";
 import ReactTextTransition, { presets } from "react-text-transition";
 import getRandomNumber from '@/utils/getRandomNumber';
-import { useTranslation } from "@/app/i18n"; // Import useTranslation correctly
+import { useTranslation } from "@/app/i18n"; 
 
 type ProfileSectionProps = {
   lng: string;

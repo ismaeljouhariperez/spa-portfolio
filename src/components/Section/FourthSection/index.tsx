@@ -1,42 +1,60 @@
 import React from 'react';
+import { SkillsList as SkillsListType } from '@/types/types';
 import { useTranslation } from '@/app/i18n';
 
-// types.ts
-export type SkillsList = {
-    name: string;
-    technologies: string[];
+type SkillsListProps = {
+    lists: SkillsListType[];
+    lng: string;
   };
 
-type SkillsProps = {
-    categories: SkillsList[];
-    lng: string;
-};
-
-const SkillsSection: React.FC<SkillsProps> = ({ categories, lng }) => {
+const SkillsSection: React.FC<SkillsListProps> = ({ lists, lng }) => {
+ 
     const { t } = useTranslation(lng, 'translation');
-    
+    const skillsLists: SkillsListType[] = [
+        {
+          name: 'Frameworks',
+          skills: ['React', 'Laravel', 'Next'],
+        },
+        {
+          name: 'Languages',
+          skills: ['PHP', 'Javascript', 'Typescript'],
+        },
+        {
+          name: 'Apps',
+          skills: ['Trello', 'Jira', 'Notion'],
+        },
+        {
+          name: 'Projet',
+          skills: ['Notion', 'Docker'],
+        },
+
+    ];
     return (
-        <div className="container mx-auto py-8">
-            <div className="grid grid-cols-2 gap-4">
-                <div className="col-span-1">
-                    <h2 className="text-2xl font-bold mb-4">
-                        {lng === 'fr' ? 'Colonne 1' : 'Column 1'}
-                    </h2>
-                    <p className="text-gray-700">
-                        {lng === 'fr'
-                        ? 'Contenu de la colonne 1'
-                        : 'Content of column 1'}
-                    </p>
+        <div className="container mx-auto">
+            <div className="flex h-full">
+                <div className="w-1/4">
+                    <h2 className="uppercase text-xl">Mes compétences</h2>
                 </div>
-                <div className="col-span-1">
-                    <h2 className="text-2xl font-bold mb-4">
-                        {lng === 'fr' ? 'Colonne 2' : 'Column 2'}
-                    </h2>
-                    <p className="text-gray-700">
-                        {lng === 'fr'
-                        ? 'Contenu de la colonne 2'
-                        : 'Content of column 2'}
-                    </p>
+                <div className="w-2/3 flex flex-col justify-between">
+                    <ul>
+                        {skillsLists.map((list, idx) => (
+                        <li key={idx} className="list-none grid grid-cols-2 mb-5">
+                            <h3 className="text-lg transition duration-500 ease-in-out transform hover:-translate-y-1">
+                            {list.name}
+                            </h3>
+                            <ul className="grid grid-cols-2 gap-4">
+                            {list.skills.map((skill, idx) => (
+                                <li
+                                key={idx}
+                                className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+                                >
+                                {skill}
+                                </li>
+                            ))}
+                            </ul>
+                        </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </div>

@@ -1,6 +1,5 @@
-export interface MyPageProps {
-    // Define your props here
-    locale: string;
-    translations: { [key: string]: string };
-  }
-  
+// types.ts
+export type SkillsList = {
+  name: string;
+  skills: string[];
+};
