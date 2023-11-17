@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { useTranslation } from '@/app/i18n';
 
@@ -6,10 +6,11 @@ interface Props {
   lng: string;
 } 
 
-const FirstSection = ({ lng }: Props): ReactElement => {
-  const { t, i18n } = useTranslation(lng, 'translation');
+const FirstSection: React.FC<Props> = ({ lng }) => {
+
+  const { t } = useTranslation(lng, 'translation');
   if (!t) {
-    return <svg className="animate-spin h-5 w-5 mr-3 bg-white " viewBox="0 0 24 24">    </svg>
+    return <svg className="animate-spin h-5 w-5 mr-3 bg-white " viewBox="0 0 24 24"></svg>
   }
   let h2 = t('section.first.h2', lng);
   return (

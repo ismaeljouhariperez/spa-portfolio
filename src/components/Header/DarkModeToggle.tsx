@@ -1,19 +1,13 @@
-"use client";  // This is a client component
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
+import { useDarkMode } from "@/contexts/DarkModeContext";
 
 interface DarkModeToggleProps {
     isDarkMode: boolean;
     toggleDarkMode: () => void;
   }
 
-const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ isDarkMode, toggleDarkMode }) => {
-    // const [isDarkMode, setIsDarkMode] = useState(false);
-
-    // const toggleDarkMode = () => {
-    //     setIsDarkMode(!isDarkMode);
-    //     document.documentElement.classList.toggle("dark");
-    //     document.body.classList.toggle("dark");
-    // };
+const DarkModeToggle: React.FC<DarkModeToggleProps> = () => {
+    const { isDarkMode, toggleDarkMode } = useDarkMode();
 
     return (
         <button

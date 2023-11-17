@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import { ReactElement } from 'react';
+import React from 'react';
 
 interface LogoProps {
   currentSection?: number;
 }
 
-const Logo = ({ currentSection }: LogoProps): ReactElement => {
+const Logo: React.FC<LogoProps> = ({ currentSection }) => {
   return (
       <div>
        <Image
