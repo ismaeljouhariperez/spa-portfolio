@@ -21,9 +21,7 @@ const FirstSection = ({ lng }: Props): ReactElement => {
           h2,
           1000,
         ]}
-        // wrapper={'h2'}
         speed={50}
-        // className={ 'text-7xl text-white-200' }
         repeat={Infinity}
         />
         </h2>

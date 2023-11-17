@@ -2,8 +2,13 @@ import React from 'react';
 import ProjectImage from './ProjectImage';
 import Link from 'next/link';
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
+import { useTranslation } from '@/app/i18n';
 
-const ProjectsSection = () => {
+type ProjectsSectionProps = {
+    lng : string;
+};
+
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
     const projects = [
         { name: 'ismaelphotos', url: '/webagency', image: '/projet-1.png' },
         { name: 'webagency', url: '/webagency', image: '/projet-4.png' },
@@ -11,10 +16,12 @@ const ProjectsSection = () => {
         { name: 'bikeluxembourg', url: '/bikeluxembourg', image: '/projet-3.png' },
         { name: 'jeanforteroche', url: '/jeanforteroche', image: '/projet-1.png' },
     ];
+    const { t } = useTranslation(lng, 'translation');
     return (
-        
         <nav className="w-11/12">
-            <h2 className="text-xl uppercase flex justify-between mb-6">Projets récents</h2>
+            <h2 className="text-xl uppercase flex justify-between mb-6">
+                { t ? t ('projects.title', lng):'' }
+            </h2>
             <ul className="menu">
                 {projects.map((project, index) => (
                     <li key={project.name} className={`text-3xl relative flex justify-between items-center group`}>

@@ -14,11 +14,40 @@
     "co-manager",
     "photographe"
   ],
-  "profile.cv" :[
-     "Télécharger",
-     "Mon CV"
+  "profile.cv" : "Mon CV",
+  "profile.about": "À propos de moi",
+  "skills.title": "Mes compétences",
+  "skills.list" : [
+    {
+      "name": "Frameworks",
+      "skills": ["React", "Laravel", "Next", "Tailwind"]
+    },
+    {
+      "name": "Languages",
+      "skills": ["PHP", "Javascript", "Typescript"]
+    },
+    {
+      "name": "Apps",
+      "skills": ["Trello", "Jira", "Notion", "Figma", "Adobe XD"]
+    },
+    {
+      "name": "Projet",
+      "skills": ["Agile", "Gestion d'équipe"]
+    }
   ],
-  "profile.about": "À propos de moi"
+  "contact.title" : "Vous pouvez m'écrire",
+  "contact.cta" : [
+    "par ici",
+    "juste en-dessous",
+    "par là",
+    "ci-dessous"
+  ],
+  "contact.btn" : "Me contacter",
+  "projects.title" : "Projets récents",
+  "profile.description.first" : "Je m'appelle Ismaël et j'ai déjà plus de trente ans d'expérience dans ce grand torrent vers l'abîme que l'on appelle la vie.",
+  "profile.description.second" : "Passionné de syntaxes, écrites et orales, littéraires ou informatiques, j'ai passé plus de 3 ans en agence avant de me reconvertir en tant que développeur. Désormais je vois la vie en vert et noir, un peu comme dans Matrix.",
+  "profile.description.third" : "Dans des vies antérieures, j'ai été"
+
 }
 
 

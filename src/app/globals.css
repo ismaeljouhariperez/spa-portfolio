@@ -5,8 +5,8 @@
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-rgb: 138, 177, 153; /* RGB values for #8ab199 */
-  --height-footer: 4em;
-  --height-header : 4em;
+  --height-footer: 4rem;
+  --height-header : 6rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +20,6 @@ body.dark {
   --foreground-rgb: 255, 255, 255;
   --background-rgb: 28, 28, 26; /* RGB values for #8ab199 */
 }
-
 
 body {
   display: flex;
@@ -44,13 +43,13 @@ header{
 }
 
 footer{
-  height: var(--height-footer);
+  height: var(--height-footer)!important;
 }
 
-section {
-  height: calc(100vh - ( var(--height-footer) + var(--height-header) )); /* 4rem header + 3rem footer */
+/* section {
+  height: calc(100vh - ( var(--height-footer) + var(--height-header) ));
   overflow: hidden;
-}
+} */
 
 /** LOGO **/
 
@@ -65,16 +64,16 @@ section {
 
 /** TITLES & TEXTS **/
 
-p, a, ul, li, button,h2{
+p, a, ul, li, h1{
   font-weight:300;
 }
 
-h2{
+h2, button{
   font-weight: 200;
 }
 
 h3{
-  font-weight: 350;
+  font-weight: 200;
   text-transform: uppercase;
 }
 
@@ -85,12 +84,12 @@ button.cta {
   transition: opacity .5s, border-radius .5s, border-weight .8s; /* Specify properties */
   opacity: 0.3;
   border: 1px solid white;
-  border-radius: 25px;
+  border-radius: 2em;
   text-transform: uppercase;
 }
 
 button.cta:hover {
-  border-radius: 15px;
+  border-radius: 1em;
 }
 
 button.cta-active, button.cta:hover {
@@ -218,7 +217,7 @@ ul.menu li:hover::before {
 	outline:none;
 }
 
-/* THIRD SECTION */
+/* PROJECTS SECTION */
 
 #section-2{
   align-items: flex-start;
@@ -247,11 +246,24 @@ ul.menu li:hover svg{
   transform: translate3d(0.2em, -0.2em, -0.2em);
 }
 
-/* FOURTH SECTION */
+/* SKILLS SECTION */
+
+.border-t-1{
+  border-top-width: 1px;
+}
+
+/* PROFILE SECTION */
 
 #section-4{
   width: 100vw;
 }
+
+/* ABOUT SECTION */
+
+#section-5{
+  width: 100vw;
+}
+
 
 
 
