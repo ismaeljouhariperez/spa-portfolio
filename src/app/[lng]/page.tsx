@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import React from 'react';
 import SectionComponent from '@/components/Section';
 import Header from '@/components/Header';
@@ -16,7 +17,7 @@ interface HomepageProps {
   };
 }
 
-const Homepage: React.FC<HomepageProps> = ({ params: {lng} }) => {
+const Homepage : React.FC<HomepageProps> = ({ params: { lng } }) => {
 
   const sectionConfigs = [
     { id: 'section-1', Component: IntroSection },

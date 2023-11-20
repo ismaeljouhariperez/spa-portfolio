@@ -114,6 +114,9 @@ svg.grain-background, rect {
 
 /* NAVIGATION */
 
+.text-green {
+  color: rgb(138, 177, 153);
+}
 
 .hover-underline-animation, .underline-animation {
   position: relative;

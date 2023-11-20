@@ -15,7 +15,7 @@ const DarkModeToggle: React.FC<DarkModeToggleProps> = () => {
             onClick={toggleDarkMode}
         >
               {isDarkMode ? (
-                <MoonIcon className="w-6 h-6 text-yellow-500 transition duration-700" />
+                <MoonIcon className="w-6 h-6 text-green transition duration-700" />
                 ) : (
                 <MoonIcon className="w-6 h-6 text-gray-500 transition duration-700" />
             )}

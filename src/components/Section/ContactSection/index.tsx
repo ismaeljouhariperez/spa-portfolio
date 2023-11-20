@@ -1,4 +1,3 @@
-'use client' ;
 
 import React from "react";
 import { useTranslation } from '@/app/i18n';
@@ -26,7 +25,7 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
     const btn = t ? t('contact.btn', lng) : '';
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const cta = t ? t('contact.cta', { returnObjects: true }) : [];
-    const ctaIndex = useRandomTextIndex(cta.length);
+    const ctaIndex = useRandomTextIndex(cta.length); 
 
     return (
         <div className="container flex flex-col mx-auto h-4/6 justify-between">
@@ -34,8 +33,8 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
                 <h1 className="text-7xl">
                     {title}
                     <ReactTextTransition
-                        springConfig={presets.gentle}
-                        className="big"
+                        springConfig={presets.slow}
+                        className=""
                         inline
                         >&nbsp;{cta[ctaIndex]}
                     </ReactTextTransition>.

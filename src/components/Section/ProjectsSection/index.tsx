@@ -10,7 +10,7 @@ type ProjectsSectionProps = {
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
     const projects = [
-        { name: 'ismaelphotos', url: '/webagency', image: '/projet-1.png' },
+        { name: 'ismaelphotos', url: 'https://ismael.photos', image: '/projet-1.png' },
         { name: 'webagency', url: '/webagency', image: '/projet-4.png' },
         { name: 'ville_ireki', url: '/ville_ireki', image: '/projet-2.png' },
         { name: 'bikeluxembourg', url: '/bikeluxembourg', image: '/projet-3.png' },
