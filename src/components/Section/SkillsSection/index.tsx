@@ -21,7 +21,7 @@ const SkillsSection: React.FC<SkillsListProps> = ({ lng }) => {
                 <ul>
                     {skillsLists.map( (list, index) => (
                     <li key={index} className= {` list-none grid grid-cols-2 mb-4 ${index > 0 ? 'border-t-1	pt-4' : '' } `}>
-                        <h3 className="text-lg transition duration-500 ease-in-out transform hover:-translate-y-1">
+                        <h3 className="uppercase text-lg transition duration-500 ease-in-out transform hover:-translate-y-1">
                         {list.name}
                         </h3>
                         <ul className="grid grid-cols-2 gap-4">

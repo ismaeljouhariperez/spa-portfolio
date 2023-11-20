@@ -38,21 +38,17 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
                         >&nbsp;{cta[ctaIndex]}
                     </ReactTextTransition>.
                 </h1>
-                <button className=" border rounded-full hover:bg-white hover:text-black text-4xl px-6 py-4 my-5 transition duration-700">
+                <button className="btn-fill-effect border rounded-full text-4xl px-6 py-4 my-5">
                     { btn }
                 </button>
             </div>
             <div className='flex self-end'>
-                <ul className='grid grid-cols-2'>
+                <ul className='menu grid grid-cols-2'>
                 {contactList.map((contact, index) => (
-                    <li className="group transition flex justify-between items-center px-2" key={index}>
-                        <Link href={contact.url} passHref>
-                            <span className="hover:before:block hover:before:absolute hover:before:-inset-1 hover:before:-skew-y-3 hover:before:bg-white duration-500 transition-bg relative inline-block">
-                            <h2 className="px-4 relative text-3xl hover:text-black transition">{contact.name}</h2>
-                            </span>
-                        </Link>
-                        <Link href={contact.url} passHref>
-                            <ArrowUpRightIcon className="w-6 h-6 group-hover:-translate-y-1 group-hover:-translate-x-1 group-hover:-translate-z-1 transition motion-reduce:hover:translate-y-0 duration-700 transition ease-in-out "/>
+                    <li className="flex relative group" key={index}>
+                        <Link href={contact.url} className="flex items-center" passHref>
+                            <h2 className="mx-5 text-3xl">{contact.name}</h2>
+                            <ArrowUpRightIcon className=" w-6 h-6 transition duration-700 transition ease-in-out "/>
                         </Link>
                     </li>
                 ))}

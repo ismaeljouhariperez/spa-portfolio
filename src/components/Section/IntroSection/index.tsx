@@ -32,7 +32,7 @@ const FirstSection: React.FC<Props> = ({ lng }) => {
       </div>
       <div>
         <a href="mailto:ismael.jouhari@gmail.com" className='inline-flex'>
-          <button className="flex cta cta-active text-white py-2 px-6 hover:border-3 text-sm ">
+          <button className="btn-fill-effect text-md uppercase border rounded-full text-white py-2 px-6 hover:border-3 ">
             {t('section.first.btn', lng)}
           </button>
         </a>

@@ -1,7 +1,5 @@
-
 import { useTranslation } from '@/app/i18n';
-import React, { useState } from "react";
-// import { MinusIcon, PlusIcon } from "@heroicons/react/24/solid";
+import React from "react";
 
 interface NavLinkProps {
   lng: string;
@@ -10,7 +8,6 @@ interface NavLinkProps {
 }
 
 const NavLinks: React.FC<NavLinkProps> = ({ lng, currentSection, navigateToSection }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useTranslation(lng, 'translation');
 
   if (!t) {
@@ -27,7 +24,6 @@ const NavLinks: React.FC<NavLinkProps> = ({ lng, currentSection, navigateToSecti
   const handleClick = (sectionId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     navigateToSection(sectionId, true); 
-    setIsMenuOpen(false); // Close the menu when a link is clicked
   };
 
   return (

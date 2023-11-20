@@ -14,7 +14,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ lng }) => {
 
   return (
     <div className="container mx-auto flex justify-center w-full">
-      <div className="w-1/4">
+      <div className="w-1/5">
         <h2 className="uppercase text-xl">{t ? t ('profile.about', lng):''}</h2>
       </div>
       <div className="w-2/3 flex flex-col justify-between">
@@ -30,7 +30,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ lng }) => {
             </ReactTextTransition>
           .</p>
         </div>
-        <button className="w-1/5 flex justify-center cta cta-active text-white py-2 px-6 hover:border-3 text-sm my-5">
+        <button className="self-start flex justify-center btn-fill-effect border rounded-full text-white py-2 px-6 text-md my-5 uppercase">
           { t ? t ('profile.cv', lng):'' }
         </button>
       </div>

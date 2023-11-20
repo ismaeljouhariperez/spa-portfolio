@@ -24,10 +24,10 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
             </h2>
             <ul className="menu">
                 {projects.map((project, index) => (
-                    <li key={project.name} className={`text-3xl relative flex justify-between items-center group`}>
-                        <Link href={project.url} passHref><h3>{project.name}</h3></Link>
-                        <Link href={project.url} passHref>
-                        <ArrowUpRightIcon className="w-8 h-8 text-white-500 transition duration-700"/>
+                    <li key={project.name} className={`text-3xl relative flex group`}>
+                        <Link href={project.url} className="flex justify-between items-center w-full" passHref>
+                            <h3 className="uppercase">{project.name}</h3>
+                            <ArrowUpRightIcon className="w-8 h-8 text-white-500 transition duration-700"/>
                         </Link>
                         <ProjectImage name={project.name} image={project.image} />
                     </li>

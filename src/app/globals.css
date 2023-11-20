@@ -56,10 +56,12 @@ footer{
 .logo {
   opacity:0.4;
   transition:all .5s;
+  cursor: pointer;
 }
 
 .logo-active{
   opacity:1;
+  cursor: initial;
 }
 
 /** TITLES & TEXTS **/
@@ -68,17 +70,13 @@ p, a, ul, li, h1{
   font-weight:300;
 }
 
-h2, button{
+h2, h3, button{
   font-weight: 200;
-}
-
-h3{
-  font-weight: 200;
-  text-transform: uppercase;
 }
 
 
 /** BUTTONS **/
+
 
 button.cta {
   transition: opacity .5s, border-radius .5s, border-weight .8s; /* Specify properties */
@@ -95,6 +93,57 @@ button.cta:hover {
 button.cta-active, button.cta:hover {
   opacity: 1;
   /* will-change: opacity; Uncomment if needed for performance */
+}
+
+.btn-fill-effect {
+  position: relative;
+  overflow: hidden; /* Ensures the pseudo-element does not exceed the button boundaries */
+  background-color: transparent;
+  padding: 8px 16px;
+  transition: color 0.6s ease;
+}
+
+.btn-fill-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: white;
+  transition: width 0.6s ease;
+  z-index: -1;
+}
+
+.btn-fill-effect:hover::before {
+  width: 100%;
+}
+
+.btn-fill-effect:hover {
+  color: black;
+}
+
+
+/** LINKS **/
+
+.link-underline-effect {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline-effect::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* Adjust this depending on the font size and desired position */
+  width: 0;
+  height: 2px; /* Thickness of the underline */
+  background-color: white; /* Color of the underline */
+  transition: width 0.7s ease;
+}
+
+.link-underline-effect:hover::after {
+  width: 100%;
 }
 
 
@@ -245,7 +294,7 @@ ul.menu li:hover {
   cursor: pointer;
 }
 
-ul.menu li:hover svg{
+ul li:hover svg{
   transform: translate3d(0.2em, -0.2em, -0.2em);
 }
 

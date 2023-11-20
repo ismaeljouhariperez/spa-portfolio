@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 // import { Trans } from 'react-i18next';
 import { languages } from '@/app/i18n/settings';
-import { useTranslation } from '@/app/i18n';
+// import { useTranslation } from '@/app/i18n';
 import { useState } from 'react';
 
 interface LanguageToggleProps {
@@ -37,7 +37,7 @@ const LanguageToggle: React.FC<LanguageToggleProps> = ({ currentLanguage }) => {
           {/* {index > 0 && ' or '} */}
           <Link href={`/${l}`} passHref>
           <button
-                className={`cta cta-active px-4 py-2 text-white'
+                className={`cta px-4 py-2 text-white'
                 }`}
                 onClick={handleEnglishClick}
             >
