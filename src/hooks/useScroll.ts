@@ -1,9 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { scroller } from 'react-scroll';
+import debounce from 'lodash.debounce'; 
 
 const useScroll = (totalSections: number) => {
+  
   const [currentSection, setCurrentSection] = useState(1);
   const [canScroll, setCanScroll] = useState(true);
   const ScrollDuration = 1000;
@@ -18,7 +20,9 @@ const useScroll = (totalSections: number) => {
   };
 
   // Navigate to a section with optional click bypass
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const navigateToSection = (sectionId: string | number, clicked: boolean = false) => {
+    
     if (!canScroll && !clicked) return;
 
     const sectionNumber = typeof sectionId === 'string' ? parseInt(sectionId.split('-')[1], 10) : sectionId;
@@ -33,6 +37,51 @@ const useScroll = (totalSections: number) => {
       }, ScrollDuration);
     }
   };
+
+
+  // Debounce the navigateToSection function
+  const debouncedNavigateToSection = useCallback(
+    debounce((sectionId: string | number) => {
+      navigateToSection(sectionId);
+    }, 300), // Adjust debounce time as needed
+    [navigateToSection]
+  );
+
+
+  // Handle keyboard arrow key events
+useEffect(() => {
+  const handleKeyDown = (e: KeyboardEvent) => {
+    // This checks if an arrow key was pressed
+    if (['ArrowUp', 'ArrowDown'].includes(e.key)) {
+      e.preventDefault(); // Prevents the default arrow key behavior (scrolling)
+
+      if (!canScroll) return;
+
+      let targetSection = currentSection;
+
+      if (e.key === 'ArrowUp') {
+        targetSection = Math.max(currentSection - 1, 1);
+      } else if (e.key === 'ArrowDown') {
+        targetSection = Math.min(currentSection + 1, totalSections);
+      }
+
+      if (targetSection !== currentSection) {
+        navigateToSection(targetSection);
+      }
+    }
+  };
+
+  window.addEventListener('keydown', handleKeyDown, { passive: false });
+
+  return () => {
+    window.removeEventListener('keydown', handleKeyDown);
+  };
+}, [currentSection, canScroll, totalSections, navigateToSection]);
+
+// ...
+
+
+
 
   // Handle wheel scroll event
   useEffect(() => {
@@ -51,6 +100,7 @@ const useScroll = (totalSections: number) => {
       window.removeEventListener('wheel', handleScroll);
     };
   }, [currentSection, canScroll, totalSections]);
+
 
   // Determine the current section based on scroll position
   useEffect(() => {
