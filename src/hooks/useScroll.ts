@@ -2,27 +2,23 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { scroller } from 'react-scroll';
-import debounce from 'lodash.debounce'; 
 
 const useScroll = (totalSections: number) => {
-  
   const [currentSection, setCurrentSection] = useState(1);
   const [canScroll, setCanScroll] = useState(true);
   const ScrollDuration = 1000;
 
   // Helper function to scroll to a section
-  const scrollToSection = (sectionNumber: number) => {
+  const scrollToSection = useCallback((sectionNumber: number) => {
     scroller.scrollTo(`section-${sectionNumber}`, {
       duration: ScrollDuration,
       delay: 0,
       smooth: 'easeInOutQuart',
     });
-  };
+  }, [ScrollDuration]);
 
   // Navigate to a section with optional click bypass
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const navigateToSection = (sectionId: string | number, clicked: boolean = false) => {
-    
+  const navigateToSection = useCallback((sectionId: string | number, clicked: boolean = false) => {
     if (!canScroll && !clicked) return;
 
     const sectionNumber = typeof sectionId === 'string' ? parseInt(sectionId.split('-')[1], 10) : sectionId;
@@ -36,86 +32,67 @@ const useScroll = (totalSections: number) => {
         setCanScroll(true);
       }, ScrollDuration);
     }
-  };
+  }, [canScroll, scrollToSection, ScrollDuration]);
 
-
-  // Debounce the navigateToSection function
-  const debouncedNavigateToSection = useCallback(
-    debounce((sectionId: string | number) => {
-      navigateToSection(sectionId);
-    }, 300), // Adjust debounce time as needed
-    [navigateToSection]
-  );
-
+  // Generalized navigate function
+  const navigate = useCallback((direction: number) => {
+    if (!canScroll) return;
+    const targetSection = Math.min(Math.max(currentSection + direction, 1), totalSections);
+    navigateToSection(targetSection);
+  }, [currentSection, canScroll, totalSections, navigateToSection]);
 
   // Handle keyboard arrow key events
-useEffect(() => {
-  const handleKeyDown = (e: KeyboardEvent) => {
-    // This checks if an arrow key was pressed
-    if (['ArrowUp', 'ArrowDown'].includes(e.key)) {
-      e.preventDefault(); // Prevents the default arrow key behavior (scrolling)
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (!['ArrowUp', 'ArrowDown'].includes(e.key)) return;
+    e.preventDefault();
 
-      if (!canScroll) return;
-
-      let targetSection = currentSection;
-
-      if (e.key === 'ArrowUp') {
-        targetSection = Math.max(currentSection - 1, 1);
-      } else if (e.key === 'ArrowDown') {
-        targetSection = Math.min(currentSection + 1, totalSections);
-      }
-
-      if (targetSection !== currentSection) {
-        navigateToSection(targetSection);
-      }
-    }
-  };
-
-  window.addEventListener('keydown', handleKeyDown, { passive: false });
-
-  return () => {
-    window.removeEventListener('keydown', handleKeyDown);
-  };
-}, [currentSection, canScroll, totalSections, navigateToSection]);
-
-// ...
-
-
-
+    const direction = e.key === 'ArrowUp' ? -1 : 1;
+    navigate(direction);
+  }, [navigate]);
 
   // Handle wheel scroll event
-  useEffect(() => {
-    const handleScroll = (e: WheelEvent) => {
-      e.preventDefault();
-      if (!canScroll) return;
+  const handleScroll = useCallback((e: WheelEvent) => {
+    e.preventDefault();
+    const direction = e.deltaY > 0 ? 1 : -1;
+    navigate(direction);
+  }, [navigate]);
 
-      const direction = e.deltaY > 0 ? 1 : -1;
-      const targetSection = Math.min(Math.max(currentSection + direction, 1), totalSections);
-      navigateToSection(targetSection);
-    };
+  // Handle touch swipe event
+  let touchStartY = 0;
+  let touchEndY = 0;
 
-    window.addEventListener('wheel', handleScroll, { passive: false });
-
-    return () => {
-      window.removeEventListener('wheel', handleScroll);
-    };
-  }, [currentSection, canScroll, totalSections]);
-
-
-  // Determine the current section based on scroll position
-  useEffect(() => {
-    const handleScrollPosition = () => {
-      // Implement logic to determine the section based on scroll position
-      // This can be done by checking the scroll position relative to the top of the document
-      // and updating the currentSection state accordingly.
-    };
-
-    window.addEventListener('scroll', handleScrollPosition);
-
-    return () => {
-      window.removeEventListener('scroll', handleScrollPosition);
-    };
+  const handleTouchStart = useCallback((e: TouchEvent) => {
+    touchStartY = e.touches[0].clientY;
+    e.preventDefault();
   }, []);
+
+  const handleTouchEnd = useCallback((e: TouchEvent) => {
+    touchEndY = e.changedTouches[0].clientY;
+    e.preventDefault();
+
+    const direction = touchStartY > touchEndY ? 1 : -1;
+    navigate(direction);
+  }, [navigate]);
+
+  // Attach event listeners in useEffect hooks
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown, { passive: false });
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
+
+  useEffect(() => {
+    window.addEventListener('wheel', handleScroll, { passive: false });
+    return () => window.removeEventListener('wheel', handleScroll);
+  }, [handleScroll]);
+
+  useEffect(() => {
+    window.addEventListener('touchstart', handleTouchStart, { passive: false });
+    window.addEventListener('touchend', handleTouchEnd, { passive: false });
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [handleTouchStart, handleTouchEnd]);
 
   return { currentSection, navigateToSection };
 };
