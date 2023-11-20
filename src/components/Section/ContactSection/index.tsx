@@ -1,6 +1,5 @@
-
 import React from "react";
-import { useTranslation } from '@/app/i18n';
+import { useTranslation } from "@/app/i18n";
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import Link from 'next/link';
 import ReactTextTransition, { presets } from "react-text-transition";
@@ -30,7 +29,7 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
     return (
         <div className="container flex flex-col mx-auto h-4/6 justify-between">
             <div className="flex flex-col items-start">
-                <h1 className="text-7xl">
+                <h1 className="text-6xl">
                     {title}
                     <ReactTextTransition
                         springConfig={presets.slow}
@@ -39,7 +38,7 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
                         >&nbsp;{cta[ctaIndex]}
                     </ReactTextTransition>.
                 </h1>
-                <button className=" border rounded-full hover:bg-white hover:text-black text-5xl px-6 py-4 my-5 transition duration-700">
+                <button className=" border rounded-full hover:bg-white hover:text-black text-4xl px-6 py-4 my-5 transition duration-700">
                     { btn }
                 </button>
             </div>

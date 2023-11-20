@@ -12,7 +12,7 @@ const useRandomTextIndex = (arrayLength: number) => {
     }
     const interval = setInterval(() => {
       setTextIndex(getRandomNumber(0, arrayLength - 1));
-    }, 4000);
+    }, 2000);
     
     return () => clearInterval(interval);
   }, [arrayLength]);

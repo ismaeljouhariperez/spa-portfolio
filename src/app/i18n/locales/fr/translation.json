@@ -32,14 +32,16 @@
     },
     {
       "name": "Projet",
-      "skills": ["Agile", "Gestion d'équipe"]
+      "skills": ["Agile", "Scrum", "V-Model"]
     }
   ],
   "contact.title" : "Vous pouvez m'écrire",
   "contact.cta" : [
     "par ici",
-    "juste en-dessous",
-    "par là",
+    "en bas",
+    "juste ici",
+    "en-dessous",
+    "par-là",
     "ci-dessous"
   ],
   "contact.btn" : "Me contacter",

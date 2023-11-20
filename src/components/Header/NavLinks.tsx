@@ -1,7 +1,7 @@
 
 import { useTranslation } from '@/app/i18n';
-import React, { useState } from 'react';
-import { MoonIcon } from "@heroicons/react/24/solid";
+import React, { useState } from "react";
+// import { MinusIcon, PlusIcon } from "@heroicons/react/24/solid";
 
 interface NavLinkProps {
   lng: string;
@@ -30,19 +30,10 @@ const NavLinks: React.FC<NavLinkProps> = ({ lng, currentSection, navigateToSecti
     setIsMenuOpen(false); // Close the menu when a link is clicked
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <>
-      <div className="md:hidden">
-        <button onClick={toggleMenu} className="text-white focus:outline-none">
-          {isMenuOpen ? <MoonIcon className="h-6 w-6" /> : <MoonIcon className="h-6 w-6" />}
-        </button>
-      </div>
-      <nav className={`md:flex ${isMenuOpen ? 'block' : 'hidden'}`}>
-        <ul className="flex flex-col md:flex-row justify-between items-center">
+      <nav className="hidden lg:flex">
+        <ul className="flex flex-row justify-between items-center">
           {sections.map(({ id, label }) => (
             <li key={id} className="mx-4 my-2 md:my-0">
               <a onClick={handleClick(id)} href={`#${id}`}>
