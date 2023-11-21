@@ -2,10 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
-// import { Trans } from 'react-i18next';
 import { languages } from '@/app/i18n/settings';
-// import { useTranslation } from '@/app/i18n';
 import { useState } from 'react';
+// import { Trans } from 'react-i18next';
+// import { useTranslation } from '@/app/i18n';
 
 interface LanguageToggleProps {
   currentLanguage: string;

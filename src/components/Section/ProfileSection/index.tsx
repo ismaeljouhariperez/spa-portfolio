@@ -14,7 +14,7 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ lng }) => {
 
   return (
     <div className="container mx-auto flex justify-center w-full">
-      <div className="w-1/5">
+      <div className="w-1/4">
         <h2 className="uppercase text-xl">{t ? t ('profile.about', lng):''}</h2>
       </div>
       <div className="w-2/3 flex flex-col justify-between">

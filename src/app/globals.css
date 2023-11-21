@@ -59,8 +59,11 @@ footer{
   cursor: pointer;
 }
 
-.logo-active{
+.logo-active, .logo:hover{
   opacity:1;
+}
+
+.logo-active{
   cursor: initial;
 }
 
@@ -97,9 +100,7 @@ button.cta-active, button.cta:hover {
 
 .btn-fill-effect {
   position: relative;
-  overflow: hidden; /* Ensures the pseudo-element does not exceed the button boundaries */
-  background-color: transparent;
-  padding: 8px 16px;
+  overflow: hidden;
   transition: color 0.6s ease;
 }
 

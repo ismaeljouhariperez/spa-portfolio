@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image'
 import React from 'react';
 
@@ -9,13 +11,13 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ currentSection, navigateToSection }) => {
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-    navigateToSection('section-1', true);
+    navigateToSection('section-1');
   };
 
   return (
       <div>
        <Image 
-          className={`relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:white logo ${currentSection === 1 ? 'logo-active' : ''}`}
+          className={`relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:white logo hover:white ${currentSection === 1 ? 'logo-active' : ''}`}
           src="/IJ.svg"
           alt="Ismael Logo"
           width={30}

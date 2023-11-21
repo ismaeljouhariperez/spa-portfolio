@@ -7,6 +7,9 @@ const useScroll = (totalSections: number) => {
   const [currentSection, setCurrentSection] = useState(1);
   const [canScroll, setCanScroll] = useState(true);
   const ScrollDuration = 1000;
+  // Generate section IDs based on totalSections
+  const sectionIds = Array.from({ length: totalSections }, (_, i) => `section-${i + 1}`);
+
 
   // Helper function to scroll to a section
   const scrollToSection = useCallback((sectionNumber: number) => {
@@ -74,6 +77,20 @@ const useScroll = (totalSections: number) => {
     navigate(direction);
   }, [navigate]);
 
+  const checkCurrentSection = useCallback(() => {
+    let currentSectionIndex = 1;
+    sectionIds.forEach((id, index) => {
+      const sectionElement = document.getElementById(id);
+      if (sectionElement) {
+        const rect = sectionElement.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2) {
+          currentSectionIndex = index + 1;
+        }
+      }
+    });
+    setCurrentSection(currentSectionIndex);
+  }, [sectionIds]);
+
   // Attach event listeners in useEffect hooks
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown, { passive: false });
@@ -93,6 +110,17 @@ const useScroll = (totalSections: number) => {
       window.removeEventListener('touchend', handleTouchEnd);
     };
   }, [handleTouchStart, handleTouchEnd]);
+
+  useEffect(() => {
+    checkCurrentSection();
+    window.addEventListener('resize', checkCurrentSection);
+    window.addEventListener('scroll', checkCurrentSection);
+  
+    return () => {
+      window.removeEventListener('resize', checkCurrentSection);
+      window.removeEventListener('scroll', checkCurrentSection);
+    };
+  }, []);
 
   return { currentSection, navigateToSection };
 };
