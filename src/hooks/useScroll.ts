@@ -1,7 +1,6 @@
-'use client';
-
 import { useState, useEffect, useCallback } from 'react';
 import { scroller } from 'react-scroll';
+import { debounce } from 'lodash';
 
 const useScroll = (totalSections: number) => {
   const [currentSection, setCurrentSection] = useState(1);
@@ -10,6 +9,11 @@ const useScroll = (totalSections: number) => {
   // Generate section IDs based on totalSections
   const sectionIds = Array.from({ length: totalSections }, (_, i) => `section-${i + 1}`);
 
+ // Debounced version of setCurrentSection
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ const debouncedSetCurrentSection = useCallback(debounce((section) => {
+  setCurrentSection(section);
+}, 100), []);
 
   // Helper function to scroll to a section
   const scrollToSection = useCallback((sectionNumber: number) => {
@@ -88,8 +92,8 @@ const useScroll = (totalSections: number) => {
         }
       }
     });
-    setCurrentSection(currentSectionIndex);
-  }, [sectionIds]);
+    debouncedSetCurrentSection(currentSectionIndex); // Use the debounced function
+  }, [sectionIds, debouncedSetCurrentSection]);
 
   // Attach event listeners in useEffect hooks
   useEffect(() => {

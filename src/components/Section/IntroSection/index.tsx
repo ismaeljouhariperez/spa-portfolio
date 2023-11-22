@@ -13,6 +13,7 @@ const FirstSection: React.FC<Props> = ({ lng }) => {
     return <svg className="animate-spin h-5 w-5 mr-3 bg-white " viewBox="0 0 24 24"></svg>
   }
   let h2 = t('section.first.h2', lng);
+  
   return (
     <div className='w-11/12 h-1/2 justify-between flex flex-col	content--hero'>
       <div>
@@ -23,7 +24,7 @@ const FirstSection: React.FC<Props> = ({ lng }) => {
           1000,
         ]}
         speed={50}
-        repeat={Infinity}
+        // repeat={Infinity}
         />
         </h2>
         <h2 className="text-7xl text-white-200 my-2">{t('section.first.h3', lng)}</h2>

@@ -1,16 +1,16 @@
-import React from "react";
-import ReactTextTransition, { presets } from "react-text-transition";
+import React from "react"; 
 import { useTranslation } from "@/app/i18n"; 
-import useRandomTextIndex from "@/hooks/useRandomTextIndex";
+import TextTransition, { presets } from 'react-text-transition';
+import useTextRotation from "@/hooks/useTextRotation";
 
 type ProfileSectionProps = {
   lng: string;
 };
 
 const ProfileSection: React.FC<ProfileSectionProps> = ({ lng }) => {
+  
   const { t } = useTranslation(lng, 'translation');
-  const pastLives = t ? t('profile.pastlives', { returnObjects: true }) : [];
-  const textIndex = useRandomTextIndex(pastLives.length);
+  const pastLivesText = useTextRotation(t('profile.pastlives', { returnObjects: true }), 4000);
 
   return (
     <div className="container mx-auto flex justify-center w-full">
@@ -22,13 +22,11 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ lng }) => {
           <p className="text-5xl text-bold pb-5">{ t ? t('profile.description.first') : '' }</p>
           <p className='text-xl my-5'>{ t ? t('profile.description.second') : '' }</p>
           <p className='text-xl'>{ t ? t('profile.description.third') : '' }
-            <ReactTextTransition
-              springConfig={presets.gentle}
-              className="big"
-              inline
-              >&nbsp;{pastLives[textIndex]}
-            </ReactTextTransition>
-          .</p>
+            &nbsp;
+            <TextTransition inline springConfig={presets.gentle}>
+              { pastLivesText }
+            </TextTransition>.
+          </p>
         </div>
         <button className="self-start flex justify-center btn-fill-effect border rounded-full text-white py-2 px-6 text-md my-5 uppercase">
           { t ? t ('profile.cv', lng):'' }

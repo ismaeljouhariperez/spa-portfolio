@@ -1,11 +1,9 @@
-'use client';
-
-import React from "react";
+import React from 'react';
 import { useTranslation } from "@/app/i18n";
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import Link from 'next/link';
-import ReactTextTransition from "react-text-transition";
-import useRandomTextIndex from "@/hooks/useRandomTextIndex";
+import useTextRotation from '@/hooks/useTextRotation';
+import TextTransition, { presets } from 'react-text-transition';
 
 type ContactProps = {
     lng: string;
@@ -24,15 +22,16 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
     const { t } = useTranslation(lng, 'translation');
     const title = t ? t('contact.title', lng) : '';
     const btn = t ? t('contact.btn', lng) : '';
-    const cta = t ? t('contact.cta', { returnObjects: true }) : [];
-    const ctaIndex = useRandomTextIndex(cta.length); 
+    const ctaText = useTextRotation(t('contact.cta', { returnObjects: true }), 2000);
 
     return (
         <div className="container flex flex-col mx-auto h-4/6 justify-between">
             <div className="flex flex-col items-start">
                 <h1 className="text-6xl">
-                    { title }
-                    <ReactTextTransition inline>&nbsp;{ cta[ctaIndex] }</ReactTextTransition>.
+                    { title }&nbsp;
+                    <TextTransition inline springConfig={presets.gentle}>
+                        { ctaText }
+                    </TextTransition>.
                 </h1>
                 <button className="btn-fill-effect border rounded-full text-4xl px-6 py-4 my-5">
                     { btn }
