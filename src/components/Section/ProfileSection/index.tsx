@@ -10,7 +10,8 @@ type ProfileSectionProps = {
 const ProfileSection: React.FC<ProfileSectionProps> = ({ lng }) => {
   
   const { t } = useTranslation(lng, 'translation');
-  const pastLivesText = useTextRotation(t('profile.pastlives', { returnObjects: true }), 4000);
+  const pastLives = t ? t('profile.pastlives', { returnObjects: true }) : [];
+  const pastLivesText = useTextRotation(pastLives, 4000);
 
   return (
     <div className="container mx-auto flex justify-center w-full">

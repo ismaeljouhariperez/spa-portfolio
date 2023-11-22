@@ -22,7 +22,8 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
     const { t } = useTranslation(lng, 'translation');
     const title = t ? t('contact.title', lng) : '';
     const btn = t ? t('contact.btn', lng) : '';
-    const ctaText = useTextRotation(t('contact.cta', { returnObjects: true }), 2000);
+    const cta = t ? t('contact.cta', { returnObjects: true }) : [];
+    const ctaText = useTextRotation(cta, 2000);
 
     return (
         <div className="container flex flex-col mx-auto h-4/6 justify-between">
