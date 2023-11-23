@@ -56,7 +56,7 @@ footer{
 .logo {
   opacity:0.4;
   transition:all .5s;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .logo-active, .logo:hover{
@@ -259,12 +259,12 @@ ul.menu li::before {
 } */
 
 
-ul.menu li::before {
+ul.menu li::before, h2::before {
   transition: transform 0.8s cubic-bezier(0.2,1,0.3,1);
 	transform: scale3d(1,1,1);
 }
 
-ul.menu li:hover::before {
+ul.menu li:hover::before{
   transition: transform 0.8s cubic-bezier(0.2,1,0.3,1);
 	transform: scale3d(1.2,1,1);
 	outline:none;
@@ -279,20 +279,24 @@ ul.menu li:hover::before {
 }
 
 /* Set the default state of all <li> elements to fully transparent */
-ul.menu li {
+ul.menu li, h2 {
   transition: opacity .8s, padding .8s; /* Smooth transition for opacity change */
 }
 
 /* When hovering over the <ul>, set all <li> elements to partially opaque */
-ul.menu:hover li {
+ul.menu:hover li{
   opacity: 0.3; /* Partially transparent */
 }
 
+h2{
+  opacity: 0.7;
+}
+
 /* Set the <li> element that is being hovered over to fully opaque */
-ul.menu li:hover {
+ul.menu li:hover, h2:hover {
   padding-left:1rem;
   opacity: 1; /* Fully opaque */
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 ul li:hover svg{
@@ -316,12 +320,6 @@ ul li:hover svg{
 #section-5{
   width: 100vw;
 }
-
-
-
-
-
-
 
 
 

@@ -4,6 +4,7 @@ import '@/app/globals.css';
 import { languages } from '@/app/i18n/settings';
 import { DarkModeProvider } from '@/contexts/DarkModeContext';
 import GrainBackground from '@/components/grain';
+import AnimatedCursor from "react-animated-cursor"
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,6 +25,9 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<RootLayoutProps> = ({ children, lng }) => {
   return (
     <html lang={lng} >
+      <AnimatedCursor 
+            color='255, 255, 255'
+            />
       <DarkModeProvider >
         <body className={`grain-overlay transition duration-700 ease-in-out ${inter.className}`}>
           <GrainBackground />
