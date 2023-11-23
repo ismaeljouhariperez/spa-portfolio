@@ -25,15 +25,13 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<RootLayoutProps> = ({ children, lng }) => {
   return (
     <html lang={lng} >
-      <AnimatedCursor 
-            color='255, 255, 255'
-            />
       <DarkModeProvider >
         <body className={`grain-overlay transition duration-700 ease-in-out ${inter.className}`}>
           <GrainBackground />
           {children}
         </body>
       </DarkModeProvider>
+      {/* <AnimatedCursor color='255, 255, 255'/> */}
     </html>
   );
 }

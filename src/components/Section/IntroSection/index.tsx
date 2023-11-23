@@ -15,7 +15,7 @@ const FirstSection: React.FC<Props> = ({ lng }) => {
   let h2 = t('section.first.h2', lng);
   
   return (
-    <div className='w-11/12 h-1/2 justify-between flex flex-col	content--hero'>
+    <div className='w-50 h-1/2 justify-between flex flex-col	content--hero'>
       <div>
         <h2 className="text-7xl text-white-200 my-4 ">
         <TypeAnimation
@@ -32,7 +32,7 @@ const FirstSection: React.FC<Props> = ({ lng }) => {
       </div>
       <div>
         <a href="mailto:ismael.jouhari@gmail.com" className='inline-flex'>
-          <button className="btn-fill-effect text-md uppercase border rounded-full text-white py-2 px-6 hover:border-3 ">
+          <button className="btn-fill-effect slide-effect text-md uppercase border rounded-full text-white py-2 px-6 hover:border-3 ">
             {t('section.first.btn', lng)}
           </button>
         </a>

@@ -1,5 +1,6 @@
 {
     "nav.clients"       : "Clients",
+    "nav.skills"        : "Skills",
     "nav.projects"      : "Projects",
     "nav.profile"       : "Profile",
     "nav.contact"       : "Contact",
@@ -46,7 +47,8 @@
     "projects.title" : "Recent projects",
     "profile.description.first": "I am Ismaël, with more than three decades of navigating the dynamic currents of life's great journey.",
     "profile.description.second": "With a fervent passion for syntax in all its forms, from the elegance of literature to the precision of code, my journey has led me from a three-year tenure in an agency to a new chapter as a developer.",
-    "profile.description.third": "In my past lives, I have assumed many roles, as"
+    "profile.description.third": "In my past lives, I have assumed many roles, as",
+    "clients.title" : "Clients"
 
   }
   

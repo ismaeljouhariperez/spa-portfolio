@@ -10,6 +10,7 @@ import ProjectsSection from '@/components/Section/ProjectsSection';
 import ProfileSection from '@/components/Section/ProfileSection';
 import SkillsSection from '@/components/Section/SkillsSection';
 import ContactSection from '@/components/Section/ContactSection';
+import ClientsSection from '@/components/Section/ClientsSection';
 
 interface HomepageProps {
   params: {
@@ -20,14 +21,15 @@ interface HomepageProps {
 const Homepage : React.FC<HomepageProps> = ({ params: { lng } }) => {
 
   const sectionConfigs = [
-    { id: 'section-1', Component: IntroSection },
-    { id: 'section-2', Component: ProjectsSection },
-    { id: 'section-3', Component: ProfileSection },
-    { id: 'section-4', Component: SkillsSection },
-    { id: 'section-5', Component: ContactSection },
+    { id: 'section-1', className: 'introSection', Component: IntroSection},
+    { id: 'section-2', className: 'clientsSection', Component: ClientsSection },
+    { id: 'section-3', className: 'projectsSection', Component: ProjectsSection },
+    { id: 'section-4', className: 'profileSection', Component: ProfileSection },
+    { id: 'section-5', className: 'skillsSection', Component: SkillsSection },
+    { id: 'section-6', className: 'contactSection', Component: ContactSection },
   ];
-  const sections = sectionConfigs.map(({ id, Component }) => (
-    <SectionComponent key={id} sectionId={id}>
+  const sections = sectionConfigs.map(({ id, className, Component }) => (
+    <SectionComponent key={id} sectionClass={className} sectionId={id} >
       <Component lng={lng}/>
     </SectionComponent>
   ));

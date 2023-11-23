@@ -27,7 +27,7 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
 
     return (
         <div className="container flex flex-col mx-auto h-4/6 justify-between">
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start w-screen">
                 <h1 className="text-6xl">
                     { title }&nbsp;
                     <TextTransition inline springConfig={presets.gentle}>

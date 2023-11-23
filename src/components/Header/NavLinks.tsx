@@ -15,10 +15,11 @@ const NavLinks: React.FC<NavLinkProps> = ({ lng, currentSection, navigateToSecti
   }
 
   const sections = [
-    { id: 'section-2', label: 'nav.projects' },
-    { id: 'section-3', label: 'nav.clients' },
+    { id: 'section-2', label: 'nav.clients' },
+    { id: 'section-3', label: 'nav.projects' },
     { id: 'section-4', label: 'nav.profile' },
-    { id: 'section-5', label: 'nav.contact' },
+    { id: 'section-5', label: 'nav.skills'},
+    { id: 'section-6', label: 'nav.contact' },
   ];
 
   const handleClick = (sectionId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
