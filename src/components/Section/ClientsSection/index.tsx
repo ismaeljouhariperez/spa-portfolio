@@ -1,22 +1,27 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from '@/app/i18n';
 import ColorGenerator from '@/hooks/ColorGenerator';
 import { useDarkMode } from '@/contexts/DarkModeContext';
+import Link from 'next/link';
 
 const ClientsSection: React.FC<{ lng: string }> = ({ lng }) => {
     const [hoveredClient, setHoveredClient] = useState<string | null>(null);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const { isDarkMode } = useDarkMode();
 
+    const { t } = useTranslation(lng, 'translation');
+
     const clients = [
-        { name: 'Racketlon', task:'Lorem ipsum texte de test ', description:'Web design' },
-        { name: 'Columbia', task:'Lorem ipsum texte de test', description:'Intranet' },
-        { name: 'Pierre Fabre', task:'Lorem ipsum texte de test', description:'Social listening' },
-        { name: 'Index', task:'Lorem ipsum texte de test', description:'Web design' },
-        { name: 'IPA', task:'Lorem ipsum texte de test', description:'Intranet' },
+        { name: 'Racketlon', description:'Web design', url: '/clients/racketlon' },
+        { name: 'Columbia Sportswear', description:'Intranet', url: '/clients/columbia' },
+        { name: 'Pierre Fabre', description:'Social listening', url: '/clients/pierre-fabre' },
+        { name: 'Index Web Agency', description:'Web design', url: '/clients/index' },
+        { name: 'Groupe Santé IPA', description:'Intranet', url: '/clients/ipa' },
+        { name: 'Test', description:'Intranet', url: '/clients/ipa' },
+        { name: 'dernier test', description:'Intranet', url: '/clients/ipa' },
     ];
 
-    const { t } = useTranslation(lng, 'translation');
+    // const { t } = useTranslation(lng, 'translation');
 
     return (
         <ColorGenerator count={clients.length}>
@@ -40,11 +45,13 @@ const ClientsSection: React.FC<{ lng: string }> = ({ lng }) => {
                                         setHoveredClient(null);
                                         document.body.style.backgroundColor = '';
                                     }}
-                                    className={`relative w-full text-center text-5xl my-2 transition-opacity group duration-300
+                                    className={`relative w-full text-center my-2 transition-opacity group duration-700
                                     ${hoveredClient && hoveredClient !== client.name ? 'opacity-50' : 'opacity-100'}`} >
-                                    <h3 className="uppercase transition-all duration-700 text-6xl hover:cursor-pointer">{client.name}</h3>
-                                    <em className="text-2xl absolute bottom-0 right-0 opacity-0 group-hover:opacity-100 transition duration">{client.task}</em>
-                                    <em className="text-2xl absolute bottom-0 left-0 opacity-0 group-hover:opacity-100 transition duration">{client.description}</em>
+                                    <Link href={client.url} >
+                                        <h3 className="uppercase text-5xl">{client.name}</h3>
+                                    </Link>
+                                    <em className={ `text-xl absolute bottom-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out ${ index % 2 === 0 ? 'right-0' : 'left-0' } `}>{client.description}</em>
+                                    {/* <em className="text-2xl absolute bottom-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">{client.description}</em> */}
                                 </li>
                             ))}
                         </ul>
