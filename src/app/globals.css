@@ -78,6 +78,7 @@ h2, h3, button{
 
 em{
   font-style: normal;
+  letter-spacing: 0.08em;
 }
 
 /** BUTTONS **/
@@ -206,11 +207,11 @@ svg.grain-background, rect {
 
 /*** PROJECTS SECTION ***/
 
- figure {
+ /* figure {
   display: none;
   left:20%;
   top:-1em;
-}
+} */
 
 .projectsSection{
   align-items: flex-start;

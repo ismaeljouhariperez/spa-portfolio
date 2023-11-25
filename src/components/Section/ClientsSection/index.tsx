@@ -12,13 +12,13 @@ const ClientsSection: React.FC<{ lng: string }> = ({ lng }) => {
     const { t } = useTranslation(lng, 'translation');
 
     const clients = [
-        { name: 'Racketlon', description:'Web design', url: '/clients/racketlon' },
-        { name: 'Columbia Sportswear', description:'Intranet', url: '/clients/columbia' },
-        { name: 'Pierre Fabre', description:'Social listening', url: '/clients/pierre-fabre' },
-        { name: 'Index Web Agency', description:'Web design', url: '/clients/index' },
-        { name: 'Groupe Santé IPA', description:'Intranet', url: '/clients/ipa' },
-        { name: 'Test', description:'Intranet', url: '/clients/ipa' },
-        { name: 'dernier test', description:'Intranet', url: '/clients/ipa' },
+        { name: 'Alya', description:'Deep learning', url: '/clients/racketlon' },
+        { name: 'Index Montreal', description:'Web design', url: '/clients/index' },
+        { name: 'Unixperience', description:'Wordpress', url: '/clients/racketlon' },
+        { name: 'Delastek', description:'Intranet', url: '/clients/columbia' },
+        { name: 'Columbia Sportswear', description:'Social Listening', url: '/clients/columbia' },
+        { name: 'Firmenich', description:'Data analysis', url: '/clients/columbia' },
+        { name: 'Pierre Fabre', description:'Crisis management', url: '/clients/pierre-fabre' },
     ];
 
     // const { t } = useTranslation(lng, 'translation');
@@ -51,7 +51,6 @@ const ClientsSection: React.FC<{ lng: string }> = ({ lng }) => {
                                         <h3 className="uppercase text-5xl">{client.name}</h3>
                                     </Link>
                                     <em className={ `text-xl absolute bottom-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out ${ index % 2 === 0 ? 'right-0' : 'left-0' } `}>{client.description}</em>
-                                    {/* <em className="text-2xl absolute bottom-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">{client.description}</em> */}
                                 </li>
                             ))}
                         </ul>
