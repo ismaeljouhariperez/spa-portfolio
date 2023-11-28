@@ -9,8 +9,9 @@ import IntroSection from '@/components/Section/IntroSection';
 import ProjectsSection from '@/components/Section/ProjectsSection';
 import ProfileSection from '@/components/Section/ProfileSection';
 import SkillsSection from '@/components/Section/SkillsSection';
-import ContactSection from '@/components/Section/ContactSection';
 import ClientsSection from '@/components/Section/ClientsSection';
+import ContactSection from '@/components/Section/ContactSection';
+
 
 interface HomepageProps {
   params: {

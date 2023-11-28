@@ -1,57 +1,77 @@
 import React from 'react';
 import { useTranslation } from "@/app/i18n";
-import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
+import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import Link from 'next/link';
 import useTextRotation from '@/hooks/useTextRotation';
 import TextTransition, { presets } from 'react-text-transition';
+import { FaBehance, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import useDeviceDetection from '@/hooks/useDeviceDetection';
+
+type Contact = {
+  name: string;
+  url: string;
+  icon: JSX.Element;
+};
 
 type ContactProps = {
-    lng: string;
+  lng: string;
 };
 
 const ContactSection: React.FC<ContactProps> = ({ lng }) => {
 
-    const contactList = [
-        { name: 'Behance', url: 'https://www.behance.net/ismaeljouhari' },
-        { name: 'LinkedIn', url: 'https://www.linkedin.com/in/ismael-jhri/' },
-        { name: 'Twitter', url: 'https://twitter.com/hypsanda' },
-        { name: 'Instagram', url: 'https://instagram.com/hypsanda' },
-        { name: 'Blog', url: 'https://ismael.photos' },
-    ];
+  const iconClass = "w-7 h-7 mx-4";
 
+  const contactList: Contact[] = [
+    { name: 'Behance', url: 'https://www.behance.net/ismaeljouhari', icon: <FaBehance className={iconClass} /> },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/ismael-jhri/', icon: <FaLinkedin className={iconClass} /> },
+    { name: 'Twitter', url: 'https://twitter.com/hypsanda', icon: <FaTwitter className={iconClass} /> },
+    { name: 'Instagram', url: 'https://instagram.com/hypsanda', icon: <FaInstagram className={iconClass} /> },
+    { name: 'Blog', url: 'https://ismael.photos', icon: <FaBehance className={iconClass} /> },
+];
+   
     const { t } = useTranslation(lng, 'translation');
     const title = t ? t('contact.title', lng) : '';
     const btn = t ? t('contact.btn', lng) : '';
     const cta = t ? t('contact.cta', { returnObjects: true }) : [];
     const ctaText = useTextRotation(cta, 2000);
+    const device = useDeviceDetection();
+
+    const renderContactItem = (contact: Contact, index) => (
+        device === 'mobile' ? (
+            <li key={index}>
+                <Link href={contact.url} passHref>
+                    {contact.icon}
+                </Link>
+            </li>
+        ) : (
+            <li className="flex relative group" key={index}>
+                <Link href={contact.url} className="flex items-center" passHref>
+                    <h2 className="mx-5 text-3xl">{contact.name}</h2>
+                    <ArrowUpRightIcon className="w-6 h-6 transition duration-700 transition ease-in-out "/>
+                </Link>
+            </li>
+        )
+    );
 
     return (
-        <div className="container flex flex-col mx-auto h-4/6 justify-between">
-            <div className="flex flex-col items-start w-screen">
-                <h1 className="text-6xl">
-                    { title }&nbsp;
-                    <TextTransition inline springConfig={presets.gentle}>
-                        { ctaText }
-                    </TextTransition>.
-                </h1>
-                <button className="btn-fill-effect border rounded-full text-4xl px-6 py-4 my-5">
-                    { btn }
-                </button>
+        <div className="container flex flex-col mx-auto h-80 lg:h-4/6 justify-between">
+                <div className="flex flex-col items-center lg:items-start">
+                    <h1 className="text-2xl lg:text-6xl">
+                        { title }&nbsp;
+                        <TextTransition inline springConfig={presets.gentle}>
+                            { ctaText }
+                        </TextTransition>.
+                    </h1>
+                    <button className="btn-fill-effect border rounded-full text-l lg:text-4xl px-6 py-2 my-2 lg:my-5">
+                        { btn }
+                    </button>
+                </div>
+                <div className='lg:self-end'>
+                    <ul className='flex justify-center lg:menu lg:grid lg:grid-cols-2'>
+                        {contactList.map((contact, index) => renderContactItem(contact, index))}
+                    </ul>
+                </div>
             </div>
-            <div className='flex self-end'>
-                <ul className='menu grid grid-cols-2'>
-                {contactList.map((contact, index) => (
-                    <li className="flex relative group" key={index}>
-                        <Link href={contact.url} className="flex items-center" passHref>
-                            <h2 className="mx-5 text-3xl">{contact.name}</h2>
-                            <ArrowUpRightIcon className=" w-6 h-6 transition duration-700 transition ease-in-out "/>
-                        </Link>
-                    </li>
-                ))}
-                </ul>
-            </div>
-        </div>
-    );
-};
+    )};
 
 export default ContactSection;

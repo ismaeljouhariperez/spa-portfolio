@@ -38,18 +38,26 @@ footer {
 
 /** VARIABLES **/
 
-header{
+/* header{
   height: var(--height-header);
 }
 
 footer{
   height: var(--height-footer)!important;
-}
+} */
 
 /* section {
   height: calc(100vh - ( var(--height-footer) + var(--height-header) ));
   overflow: hidden;
 } */
+
+
+html, body{
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  };
+
 
 /** LOGO **/
 
@@ -162,7 +170,7 @@ svg.grain-background {
 
 svg.grain-background, rect {
   width: 100vw;
-  height: 100%;
+  height: 100vh;
 }
 
 /* NAVIGATION */
@@ -216,7 +224,6 @@ svg.grain-background, rect {
 .projectsSection{
   align-items: flex-start;
   width: 100%;
-  padding: 0 10%;
 }
 
 ul.menu li {
@@ -312,6 +319,40 @@ ul li:hover svg{
   bottom: 0;
   height: 100%;
 }
+
+
+
+
+
+/* Breakpoints */
+
+@media screen and (max-width: 1024px) {
+  .introSection, .profileSection, .skillsSection, .contactSection, .projectsSection{
+    padding: 0 5%;
+  }
+  .logo{
+    width: 80%;
+  }
+  button.cta {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  button.cta {
+    opacity: 0.3;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
