@@ -33,7 +33,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
     return (
         <div className="container mx-auto w-full">
             <nav>
-                <h2 className="text-l lg:text-xl uppercase flex justify-between mb-6">
+                <h2 className="text-md lg:text-xl uppercase flex justify-between mb-6">
                     {t ? t('projects.title', lng) : ''}
                 </h2>
                 <ul className="menu">
@@ -41,7 +41,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
                         <li key={project.name} 
                             onMouseMove={(e) => handleMouseMove(e, project.name)}
                             onMouseLeave={handleMouseLeave}
-                            className="relative text-xl lg:text-3xl flex group">
+                            className="relative text-l lg:text-2xl xl:text-3xl flex group">
                             <Link href={project.url} className="flex justify-between items-center w-full" passHref>
                                 <h3 className="uppercase">{project.name}</h3>
                                 <ArrowUpRightIcon className="w-4 h-4 lg:w-8 lg:h-8 text-white-500 transition duration-700"/>

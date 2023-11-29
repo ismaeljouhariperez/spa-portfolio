@@ -4,7 +4,7 @@ import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
 import Link from 'next/link';
 import useTextRotation from '@/hooks/useTextRotation';
 import TextTransition, { presets } from 'react-text-transition';
-import { FaBehance, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaBehance, FaLinkedin, FaGhost, FaInstagram, FaSquarespace } from "react-icons/fa";
 import useDeviceDetection from '@/hooks/useDeviceDetection';
 
 type Contact = {
@@ -24,9 +24,9 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
   const contactList: Contact[] = [
     { name: 'Behance', url: 'https://www.behance.net/ismaeljouhari', icon: <FaBehance className={iconClass} /> },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/ismael-jhri/', icon: <FaLinkedin className={iconClass} /> },
-    { name: 'Twitter', url: 'https://twitter.com/hypsanda', icon: <FaTwitter className={iconClass} /> },
+    { name: 'Blog', url: 'https://twitter.com/hypsanda', icon: <FaGhost className={iconClass} /> },
     { name: 'Instagram', url: 'https://instagram.com/hypsanda', icon: <FaInstagram className={iconClass} /> },
-    { name: 'Blog', url: 'https://ismael.photos', icon: <FaBehance className={iconClass} /> },
+    { name: 'Squarespace', url: 'https://ismael.photos', icon: <FaSquarespace className={iconClass} /> },
 ];
    
     const { t } = useTranslation(lng, 'translation');
@@ -46,7 +46,7 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
         ) : (
             <li className="flex relative group" key={index}>
                 <Link href={contact.url} className="flex items-center" passHref>
-                    <h2 className="mx-5 text-3xl">{contact.name}</h2>
+                    <h2 className="mx-5 text-2xl">{contact.name}</h2>
                     <ArrowUpRightIcon className="w-6 h-6 transition duration-700 transition ease-in-out "/>
                 </Link>
             </li>
@@ -56,13 +56,13 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
     return (
         <div className="container flex flex-col mx-auto h-80 lg:h-4/6 justify-between">
                 <div className="flex flex-col items-center lg:items-start">
-                    <h1 className="text-2xl lg:text-6xl">
+                    <h1 className="text-2xl lg:text-5xl xl:text-6xl">
                         { title }&nbsp;
                         <TextTransition inline springConfig={presets.gentle}>
                             { ctaText }
                         </TextTransition>.
                     </h1>
-                    <button className="btn-fill-effect border rounded-full text-l lg:text-4xl px-6 py-2 my-2 lg:my-5">
+                    <button className="btn-fill-effect border rounded-full text-l lg:text-3xl xl:text-4xl px-6 py-2 my-2 lg:my-5">
                         { btn }
                     </button>
                 </div>

@@ -29,12 +29,12 @@ const NavLinks: React.FC<NavLinkProps> = ({ lng, currentSection, navigateToSecti
 
   return (
     <>
-      <nav className="hidden md:flex">
+      <nav className="hidden lg:flex">
         <ul className="flex flex-row justify-between items-center">
           {sections.map(({ id, label }) => (
             <li key={id} className="mx-4 my-2 md:my-0">
               <a onClick={handleClick(id)} href={`#${id}`}>
-                <button className={`cta px-4 py-2 text-md ${currentSection === parseInt(id.split('-')[1]) ? 'cta-active' : ''}`}>
+                <button className={`cta px-4 py-2 text-sm lg:text-md ${currentSection === parseInt(id.split('-')[1]) ? 'cta-active' : ''}`}>
                   {t(label)}
                 </button>
               </a>

@@ -16,13 +16,13 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ lng }) => {
   return (
     <div className="container mx-auto flex justify-center w-full">
       <div className="hidden lg:flex lg:w-1/4">
-        <h2 className="uppercase text-xl">{t ? t ('profile.about', lng):''}</h2>
+        <h2 className="uppercase text-l xl:text-xl">{t ? t ('profile.about', lng):''}</h2>
       </div>
       <div className="w-full lg:w-2/3 flex flex-col justify-between">
         <div>
-          <p className="text-2xl lg:text-5xl text-bold pb-5">{ t ? t('profile.description.first') : '' }</p>
-          <p className='text-l lg:text-xl my-5'>{ t ? t('profile.description.second') : '' }</p>
-          <p className='text-l lg:text-xl'>{ t ? t('profile.description.third') : '' }
+          <p className="text-2xl lg:text-4xl xl:text-5xl text-bold pb-5">{ t ? t('profile.description.first') : '' }</p>
+          <p className='text-l xl:text-xl my-5'>{ t ? t('profile.description.second') : '' }</p>
+          <p className='text-l xl:text-xl'>{ t ? t('profile.description.third') : '' }
             &nbsp;
             <TextTransition inline springConfig={presets.gentle}>
               { pastLivesText }

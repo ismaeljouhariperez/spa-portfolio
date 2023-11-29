@@ -13,7 +13,7 @@ const SkillsSection: React.FC<SkillsListProps> = ({ lng }) => {
     return (
         <div className="container mx-auto flex justify-center w-full">
             <div className="hidden lg:flex lg:w-1/4">
-                <h2 className="uppercase text-xl">
+                <h2 className="uppercase text-l xl:text-xl">
                     {t ? t ('skills.title', lng):''}
                 </h2>
             </div>
