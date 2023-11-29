@@ -6,9 +6,9 @@ interface Props {
   lng: string;
 } 
 
-const FirstSection: React.FC<Props> = ({ lng }) => {
+const FirstSection: React.FC<Props> = async ({ lng }) => {
 
-  const { t } = useTranslation(lng, 'translation');
+  const { t } = await useTranslation(lng)
   if (!t) {
     return <svg className="animate-spin h-5 w-5 mr-3 bg-white " viewBox="0 0 24 24"></svg>
   }

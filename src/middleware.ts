@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export function middleware(req) {
+export function middleware(req:any) {
   const defaultLocale = 'fr';
   const { pathname } = req.nextUrl;
 
