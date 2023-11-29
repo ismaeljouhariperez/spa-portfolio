@@ -4,12 +4,12 @@ import ColorGenerator from '@/hooks/ColorGenerator';
 import { useDarkMode } from '@/contexts/DarkModeContext';
 import Link from 'next/link';
 
-const ClientsSection: React.FC<{ lng: string }> = async ({ lng }) => {
+const ClientsSection: React.FC<{ lng: string }> = ({ lng }) => {
     const [hoveredClient, setHoveredClient] = useState<string | null>(null);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
     const { isDarkMode } = useDarkMode();
 
-    const { t } = await useTranslation(lng)
+    const { t } = useTranslation(lng, 'translation');
 
     const clients = [
         { name: 'Alya', description:'Deep learning', url: '/clients/racketlon' },

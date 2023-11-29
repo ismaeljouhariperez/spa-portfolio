@@ -8,7 +8,7 @@ type ProjectsSectionProps = {
     lng: string;
 };
 
-const ProjectsSection: React.FC<ProjectsSectionProps> = async ({ lng }) => {
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
     const [hoveredImage, setHoveredImage] = useState<string | null>(null);
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
 
@@ -28,7 +28,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = async ({ lng }) => {
         { name: 'bikeluxembourg', url: '/bikeluxembourg', image: '/projet-3.png' },
         { name: 'jeanforteroche', url: '/jeanforteroche', image: '/projet-1.png' },
     ];
-    const { t } = await useTranslation(lng)
+    const { t } = useTranslation(lng, 'translation');
 
     return (
         <div className="container mx-auto w-full">

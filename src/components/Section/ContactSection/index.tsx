@@ -17,7 +17,7 @@ type ContactProps = {
   lng: string;
 };
 
-const ContactSection: React.FC<ContactProps> = async ({ lng }) => {
+const ContactSection: React.FC<ContactProps> = ({ lng }) => {
 
   const iconClass = "w-7 h-7 mx-4";
 
@@ -29,14 +29,14 @@ const ContactSection: React.FC<ContactProps> = async ({ lng }) => {
     { name: 'Squarespace', url: 'https://ismael.photos', icon: <FaSquarespace className={iconClass} /> },
 ];
    
-const { t } = await useTranslation(lng)
-const title = t ? t('contact.title', lng) : '';
+    const { t } = useTranslation(lng, 'translation');
+    const title = t ? t('contact.title', lng) : '';
     const btn = t ? t('contact.btn', lng) : '';
-    const cta = t ? t('contact.cta') : [];
-    const ctaText = ""
+    const cta = t ? t('contact.cta', { returnObjects: true }) : [];
+    const ctaText = useTextRotation(cta, 2000);
     const device = useDeviceDetection();
 
-    const renderContactItem = (contact: Contact, index: any) => (
+    const renderContactItem = (contact: Contact, index) => (
         device === 'mobile' ? (
             <li key={index}>
                 <Link href={contact.url} passHref>

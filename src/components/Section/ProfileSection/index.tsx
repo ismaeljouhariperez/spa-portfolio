@@ -7,11 +7,11 @@ type ProfileSectionProps = {
   lng: string;
 };
 
-const ProfileSection: React.FC<ProfileSectionProps> = async ({ lng }) => {
+const ProfileSection: React.FC<ProfileSectionProps> = ({ lng }) => {
   
-  const { t } = await useTranslation(lng)
-  const pastLives = t ? t('profile.pastlives') : [];
-  const pastLivesText = ""
+  const { t } = useTranslation(lng, 'translation');
+  const pastLives = t ? t('profile.pastlives', { returnObjects: true }) : [];
+  const pastLivesText = useTextRotation(pastLives, 2000);
 
   return (
     <div className="container mx-auto flex justify-center w-full">

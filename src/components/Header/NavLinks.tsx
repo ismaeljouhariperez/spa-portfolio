@@ -7,8 +7,8 @@ interface NavLinkProps {
   navigateToSection: (sectionId: string) => void;
 }
 
-const NavLinks: React.FC<NavLinkProps> = async ({ lng, currentSection, navigateToSection }) => {
-  const { t } = await useTranslation(lng)
+const NavLinks: React.FC<NavLinkProps> = ({ lng, currentSection, navigateToSection }) => {
+  const { t } = useTranslation(lng, 'translation');
 
   if (!t) {
     return <svg className="animate-spin h-5 w-5 mr-3  " viewBox="0 0 24 24"></svg>
@@ -24,7 +24,7 @@ const NavLinks: React.FC<NavLinkProps> = async ({ lng, currentSection, navigateT
 
   const handleClick = (sectionId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    navigateToSection(sectionId); 
+    navigateToSection(sectionId, true); 
   };
 
   return (
