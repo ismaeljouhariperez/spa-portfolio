@@ -33,10 +33,10 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
     const title = t ? t('contact.title', lng) : '';
     const btn = t ? t('contact.btn', lng) : '';
     const cta = t ? t('contact.cta', { returnObjects: true }) : [];
-    const ctaText = useTextRotation(cta, 2000);
+    const ctaText = useTextRotation(cta as string[], 2000);
     const device = useDeviceDetection();
 
-    const renderContactItem = (contact: Contact, index) => (
+    const renderContactItem = (contact: Contact, index:number) => (
         device === 'mobile' ? (
             <li key={index}>
                 <Link href={contact.url} passHref>

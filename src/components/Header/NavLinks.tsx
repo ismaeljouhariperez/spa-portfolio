@@ -24,7 +24,7 @@ const NavLinks: React.FC<NavLinkProps> = ({ lng, currentSection, navigateToSecti
 
   const handleClick = (sectionId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    navigateToSection(sectionId, true); 
+    navigateToSection(sectionId); 
   };
 
   return (
@@ -34,7 +34,7 @@ const NavLinks: React.FC<NavLinkProps> = ({ lng, currentSection, navigateToSecti
           {sections.map(({ id, label }) => (
             <li key={id} className="mx-4 my-2 md:my-0">
               <a onClick={handleClick(id)} href={`#${id}`}>
-                <button className={`cta px-4 py-2 text-sm lg:text-md ${currentSection === parseInt(id.split('-')[1]) ? 'cta-active' : ''}`}>
+                <button className={`cta px-4 py-2 text-sm lg:text-md ${currentSection === parseInt(id.split('-')[1]) ? 'cta-active' : 'opacity-0'}`}>
                   {t(label)}
                 </button>
               </a>

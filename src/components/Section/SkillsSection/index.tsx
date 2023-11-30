@@ -5,10 +5,29 @@ type SkillsListProps = {
     lng: string;
 };
 
+type Skill = {
+    name: string;
+    skills: string[];
+  };
+  
+  type SkillsList = Skill[];
+  
+  type SkillsTranslation = {
+    list: SkillsList;
+    title: string;
+  };
+  
+
 const SkillsSection: React.FC<SkillsListProps> = ({ lng }) => {
  
     const { t } = useTranslation(lng, 'translation');
-    const skillsLists = t ? t('skills.list', { returnObjects: true }) : [];
+    const skillsTranslation = t ? t('skills', { returnObjects: true }) as SkillsTranslation : '';
+    if (!skillsTranslation) return null;
+    const skillsLists = skillsTranslation.list || [];
+
+    // const skillsLists = t ? t('skills.list', { returnObjects: true }) : [];
+    // const skillsLists = (t('skills.list', { returnObjects: true }) as TranslationReturnObject).list || [];
+
 
     return (
         <div className="container mx-auto flex justify-center w-full">

@@ -4,16 +4,23 @@ import resourcesToBackend from 'i18next-resources-to-backend';
 import { initReactI18next } from 'react-i18next';
 import { getOptions } from './settings';
 
-const initI18next = async (lng: string, ns: string | string[]): Promise<I18NextInstance> => {
+// Add this at the top of your file
+declare module 'i18next' {
+  interface i18n {
+    reportNamespaces?: string; 
+  }
+}
+
+const initI18next = async (lng: string, ns: string): Promise<I18NextInstance> => {
   const i18nInstance = createInstance();
   await i18nInstance
     .use(initReactI18next)
-    .use(resourcesToBackend((language, namespace) => import(`./locales/${language}/${namespace}.json`)))
+    .use(resourcesToBackend((language:string, namespace:string) => import(`@/app/i18n/locales/${language}/${namespace}.json`)))
     .init(getOptions(lng, ns));
   return i18nInstance;
 };
 
-export function useTranslation(lng: string, ns: string | string[], options: { keyPrefix?: string } = {}): { t?: TFunction; i18n?: I18NextInstance } {
+export function useTranslation(lng: string, ns: string, options: { keyPrefix?: string } = {}): { t?: TFunction; i18n?: I18NextInstance } {
   const [t, setT] = useState<TFunction>();
   const [i18n, setI18n] = useState<I18NextInstance>();
 

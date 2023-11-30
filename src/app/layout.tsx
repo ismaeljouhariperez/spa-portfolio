@@ -4,7 +4,7 @@ import '@/app/globals.css';
 import { languages } from '@/app/i18n/settings';
 import { DarkModeProvider } from '@/contexts/DarkModeContext';
 import GrainBackground from '@/components/grain';
-import AnimatedCursor from "react-animated-cursor"
+// import AnimatedCursor from "react-animated-cursor"
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,7 +14,8 @@ export async function generateStaticParams(): Promise<{ params: { lng: string } 
 
 interface RootLayoutProps {
   children: React.ReactNode;
-    lng: string; // 'en' | 'fr'
+  params : { lng: string };
+  // lng: string; // 'en' | 'fr'
 }
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   description: 'Mon portfolio de développeur Full Stack avec Next.js'
 };
 
-const RootLayout: React.FC<RootLayoutProps> = ({ children, lng }) => {
+const RootLayout: React.FC<RootLayoutProps> = ({ children, params:  { lng } }) => {
   return (
     <html lang={lng} >
       <DarkModeProvider >

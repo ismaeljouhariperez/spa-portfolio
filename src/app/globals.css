@@ -61,17 +61,13 @@ html, body{
 
 /** LOGO **/
 
-.logo {
+/* .logo {
   opacity:0.4;
   transition:all .5s;
-}
+} */
 
-.logo-active, .logo:hover{
+.logo-active {
   opacity:1;
-}
-
-.logo-active{
-  cursor: initial;
 }
 
 /** TITLES & TEXTS **/
@@ -94,15 +90,15 @@ em{
 button.cta {
   /* transition: opacity .5s, border-radius .5s, border-weight .8s; Specify properties */
   transition: opacity .5s; /* Specify properties */
-  opacity: 0.3;
+  /* opacity: 0.3; */
   border: 1px solid white;
   border-radius: 2em;
   text-transform: uppercase;
 }
 
 button.cta-active, button.cta:hover {
-  opacity: 1;
-  will-change: opacity; /* Uncomment if needed for performance */
+  opacity: 1!important;
+  /* will-change: opacity; Uncomment if needed for performance */
 }
 
 .btn-fill-effect {

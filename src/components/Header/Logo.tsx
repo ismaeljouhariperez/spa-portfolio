@@ -15,7 +15,7 @@ const Logo: React.FC<LogoProps> = ({ currentSection, navigateToSection }) => {
   return (
       <div>
        <Image 
-          className={`relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:white logo hover:white ${currentSection === 1 ? 'logo-active' : ''}`}
+          className={`relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:white hover:opacity-1 transition-opacity duration-700 ${currentSection === 1 ? 'logo-active' : 'logo'}`}
           src="/IJ.svg"
           alt="Ismael Logo"
           width={30}
