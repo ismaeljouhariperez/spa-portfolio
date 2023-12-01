@@ -32,7 +32,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
     const projects = [
         { name: 'ismaelphotos', url: 'https://ismael.photos', image: '/projet-5.png' },
         { name: 'webagency', url: 'https://projet-1-oc.ismaelperez.cc', image: '/projet-4.png' },
-        { name: 'ville_ireki', url: 'https://projet-1-oc.ismaelperez.cc', image: '/projet-2.png' },
+        { name: 'ville_ireki', url: 'https://drive.google.com/file/d/1KZU9ie8-IYLOPCt37yexFrEqGKXprLxX/view', image: '/projet-2.png' },
         { name: 'bikeluxembourg', url: 'https://projet-3-oc.ismaelperez.cc', image: '/projet-3.png' },
         { name: 'jeanforteroche', url: 'https://drive.google.com/file/d/1WxDu-bajdjOUu9fsz9848B_s6QruOged/view', image: '/projet-1.png' },
     ];
