@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-export function middleware(req:any) {
-  const defaultLocale = 'fr';
+export function middleware(req:string | any, ev:string | any) {
+  const defaultLocale = 'en';
   const { pathname } = req.nextUrl;
 
   // Only rewrite the path for root requests, not for other pages or static files
@@ -11,10 +11,10 @@ export function middleware(req:any) {
     return NextResponse.rewrite(url);
   }
 
-   // Redirect from '/fr' to '/'
-   if (pathname.startsWith('/fr')) {
+  // Redirect from /defaultLocale to '/'
+  if (pathname.startsWith(`/${defaultLocale}`)) {
     const url = req.nextUrl.clone();
-    url.pathname = pathname.replace(/^\/fr\/?/, '/');
+    url.pathname = pathname.replace(new RegExp(`^/${defaultLocale}/?`), '/');
     return NextResponse.redirect(url);
   }
 

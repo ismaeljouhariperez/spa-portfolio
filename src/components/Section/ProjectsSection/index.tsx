@@ -3,6 +3,8 @@ import ProjectImage from './ProjectImage';
 import Link from 'next/link';
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import { useTranslation } from '@/app/i18n';
+import useDeviceDetection from '@/hooks/useDeviceDetection';
+
 
 type ProjectsSectionProps = {
     lng: string;
@@ -11,24 +13,29 @@ type ProjectsSectionProps = {
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
     const [hoveredImage, setHoveredImage] = useState<string | null>(null);
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+    const device = useDeviceDetection();
+    const { t } = useTranslation(lng, 'translation');
 
     const handleMouseMove = (e: React.MouseEvent, imageName: string) => {
-        setCursorPos({ x: e.clientX, y: e.clientY });
-        setHoveredImage(imageName);
+        if (device === 'desktop') {
+            setCursorPos({ x: e.clientX, y: e.clientY });
+            setHoveredImage(imageName);
+        }
     };
 
     const handleMouseLeave = () => {
-        setHoveredImage(null);
+        if (device === 'desktop') {
+            setHoveredImage(null);
+        }
     };
 
     const projects = [
-        { name: 'ismaelphotos', url: 'https://ismael.photos', image: '/projet-1.png' },
-        { name: 'webagency', url: '/webagency', image: '/projet-4.png' },
-        { name: 'ville_ireki', url: '/ville_ireki', image: '/projet-2.png' },
-        { name: 'bikeluxembourg', url: '/bikeluxembourg', image: '/projet-3.png' },
-        { name: 'jeanforteroche', url: '/jeanforteroche', image: '/projet-1.png' },
+        { name: 'ismaelphotos', url: 'https://ismael.photos', image: '/projet-5.png' },
+        { name: 'webagency', url: 'https://projet-1-oc.ismaelperez.cc', image: '/projet-4.png' },
+        { name: 'ville_ireki', url: 'https://projet-1-oc.ismaelperez.cc', image: '/projet-2.png' },
+        { name: 'bikeluxembourg', url: 'https://projet-3-oc.ismaelperez.cc', image: '/projet-3.png' },
+        { name: 'jeanforteroche', url: 'https://drive.google.com/file/d/1WxDu-bajdjOUu9fsz9848B_s6QruOged/view', image: '/projet-1.png' },
     ];
-    const { t } = useTranslation(lng, 'translation');
 
     return (
         <div className="container mx-auto w-full">
@@ -38,16 +45,16 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
                 </h2>
                 <ul className="menu">
                     {projects.map((project, index) => (
-                        <li key={project.name} 
-                            onMouseMove={(e) => handleMouseMove(e, project.name)}
-                            onMouseLeave={handleMouseLeave}
+                        <li key={index} 
+                            onMouseMove={device === 'desktop' ? (e) => handleMouseMove(e, project.name) : undefined}
+                            onMouseLeave={device === 'desktop' ? handleMouseLeave : undefined}
                             className="relative text-l lg:text-2xl xl:text-3xl flex group">
-                            <Link href={project.url} className="flex justify-between items-center w-full" passHref>
-                                <h3 className="uppercase">{project.name}</h3>
-                                <ArrowUpRightIcon className="w-4 h-4 lg:w-8 lg:h-8 text-white-500 transition duration-700"/>
-                            </Link>
-                            <ProjectImage name={project.name} image={project.image} cursorPos={cursorPos} />
-                        </li>
+                        <Link href={project.url} className="flex justify-between items-center w-full" passHref>
+                            <h3 className="uppercase">{project.name}</h3>
+                            <ArrowUpRightIcon className="w-4 h-4 lg:w-8 lg:h-8 text-white-500 transition duration-700"/>
+                        </Link>
+                        <ProjectImage name={project.name} image={project.image} cursorPos={cursorPos} />
+                    </li>
                     ))}
                 </ul>
             </nav>

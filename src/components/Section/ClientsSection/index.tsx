@@ -12,13 +12,13 @@ const ClientsSection: React.FC<{ lng: string }> = ({ lng }) => {
     const { t } = useTranslation(lng, 'translation');
 
     const clients = [
-        { name: 'Alya', description:'Deep learning', url: '/clients/racketlon' },
-        { name: 'Index Montreal', description:'Web design', url: '/clients/index' },
-        { name: 'Unixperience', description:'Wordpress', url: '/clients/racketlon' },
-        { name: 'Delastek', description:'Intranet', url: '/clients/columbia' },
+        { name: 'Alya', description:'Deep learning', url: 'https://www.alya.ai/' },
+        { name: 'Index Montreal', description:'Web design', url: 'https://www.indexwebmarketing.com/' },
+        { name: 'Unixperience', description:'Wordpress', url: 'https://www.racketlon.ca/about-racketlon/#item-6' },
+        { name: 'Delastek', description:'Intranet', url: 'https://www.columbiasportswear.fr/' },
         { name: 'Columbia Sportswear', description:'Social Listening', url: '/clients/columbia' },
-        { name: 'Firmenich', description:'Data analysis', url: '/clients/columbia' },
-        { name: 'Pierre Fabre', description:'Crisis management', url: '/clients/pierre-fabre' },
+        { name: 'Firmenich', description:'Data analysis', url: 'https://www.firmenich.com/' },
+        { name: 'Pierre Fabre', description:'Crisis management', url: 'https://www.pierre-fabre.com/fr-fr' },
     ];
 
     return (
@@ -48,7 +48,7 @@ const ClientsSection: React.FC<{ lng: string }> = ({ lng }) => {
                                     <Link href={client.url} >
                                         <h3 className="uppercase text-3xl lg:text-5xl">{client.name}</h3>
                                     </Link>
-                                    <em className={ `text-xl absolute bottom-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out ${ index % 2 === 0 ? 'right-0' : 'left-0' } `}>
+                                    <em className={ `text-xl absolute bottom-0 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 ease-in-out ${ index % 2 === 0 ? 'right-0' : 'left-0' } `}>
                                         {client.description}
                                     </em>
                                 </li>

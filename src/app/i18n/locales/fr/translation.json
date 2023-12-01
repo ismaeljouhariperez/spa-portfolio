@@ -1,6 +1,6 @@
 {
   "nav.clients"         : "Clients",
-  "nav.skills"          : "Utils",
+  "nav.skills"          : "Libs",
   "nav.projects"        : "Projets",
   "nav.profile"         : "Profil",
   "nav.contact"         : "Contact",
@@ -15,7 +15,7 @@
     "co-manager",
     "photographe"
   ],
-  "profile.cv" : "Mon CV",
+  "profile.cv" : "Mon LinkedIn",
   "profile.about": "À propos de moi",
   "skills.title": "Mes compétences",
   "skills.list" : [

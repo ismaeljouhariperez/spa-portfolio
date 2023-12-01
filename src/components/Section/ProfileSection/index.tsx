@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "@/app/i18n"; 
 import TextTransition, { presets } from 'react-text-transition';
 import useTextRotation from "@/hooks/useTextRotation";
+import Link from "next/link";
 
 type ProfileSectionProps = {
   lng: string;
@@ -29,9 +30,16 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ lng }) => {
             </TextTransition>.
           </p>
         </div>
-        <button className="self-start flex justify-center btn-fill-effect border rounded-full text-white py-2 px-6 text-sm lg:text-md my-5 uppercase">
-          { t ? t ('profile.cv', lng):'' }
-        </button>
+        <Link 
+            href="https://www.linkedin.com/in/ismael-jhri/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            passHref
+        >
+          <button className="self-start flex justify-center btn-fill-effect border rounded-full text-white py-2 px-6 text-sm lg:text-md my-5 uppercase">
+            { t ? t ('profile.cv', lng):'' }
+          </button>
+        </Link>
       </div>
     </div>
   );

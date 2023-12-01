@@ -28,7 +28,6 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
     { name: 'Instagram', url: 'https://instagram.com/hypsanda', icon: <FaInstagram className={iconClass} /> },
     { name: 'Squarespace', url: 'https://ismael.photos', icon: <FaSquarespace className={iconClass} /> },
 ];
-   
     const { t } = useTranslation(lng, 'translation');
     const title = t ? t('contact.title', lng) : '';
     const btn = t ? t('contact.btn', lng) : '';

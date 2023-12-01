@@ -11,10 +11,12 @@ const Footer: React.FC<FooterProps> = ({ isLastSection }) => {
     isLastSection ? 'bg-gray-200' : ' '
   }`;
 
+  const heartClassName = isLastSection ? 'text-red-500' : 'text-gray-600';
+
   return (
     <footer className={footerClassName}>
       <p className="text-gray-600 text-sm">
-        Ismaël Jouhari-Perez | 2023 © Design par Pauline Mischler
+        Made with <span className={`transition duration-500 delay-500 ${heartClassName}`}>&#10084;</span> in Next.js | Design by Pauline Mischler
       </p>
     </footer>
   );

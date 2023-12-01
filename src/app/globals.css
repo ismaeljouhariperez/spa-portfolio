@@ -96,7 +96,7 @@ button.cta {
   text-transform: uppercase;
 }
 
-button.cta-active, button.cta:hover {
+button.cta-active {
   opacity: 1!important;
   /* will-change: opacity; Uncomment if needed for performance */
 }
@@ -105,10 +105,6 @@ button.cta-active, button.cta:hover {
   position: relative;
   overflow: hidden;
   transition: color .4s ease-in;
-}
-
-.btn-fill-effect:hover {
-  color: black;
 }
 
 .btn-fill-effect::before {
@@ -123,9 +119,6 @@ button.cta-active, button.cta:hover {
   z-index: -1;
 }
 
-.btn-fill-effect:hover::before {
-  width: 100%;
-}
 
 /* SECTIONS */
 
@@ -133,47 +126,14 @@ button.cta-active, button.cta:hover {
   width: 100vw;
 } */
 
-/** LINKS **/
-
-.link-underline-effect {
-  position: relative;
-  text-decoration: none;
-}
-
-.link-underline-effect::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -3px; /* Adjust this depending on the font size and desired position */
-  width: 0;
-  height: 2px; /* Thickness of the underline */
-  background-color: white; /* Color of the underline */
-  transition: width 0.7s ease;
-}
-
-.link-underline-effect:hover::after {
-  width: 100%;
-}
-
 /* GRAINY BACKGROUND */
 
 svg.grain-background {
-  opacity: 0.3;
-  z-index: -2;
-  -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
-  filter: invert(100%);
-}
-
-svg.grain-background, rect {
-  width: 100vw;
-  height: 100vh;
+  display: none;
 }
 
 /* NAVIGATION */
 
-.text-green {
-  color: rgb(138, 177, 153);
-}
 
 .hover-underline-animation, .underline-animation {
   position: relative;
@@ -211,12 +171,6 @@ svg.grain-background, rect {
 
 /*** PROJECTS SECTION ***/
 
- /* figure {
-  display: none;
-  left:20%;
-  top:-1em;
-} */
-
 .projectsSection{
   align-items: flex-start;
   width: 100%;
@@ -247,31 +201,12 @@ ul.menu li::before, h2::before {
 	transform: scale3d(1,1,1);
 }
 
-ul.menu li:hover::before{
-  transition: transform 0.8s cubic-bezier(0.2,1,0.3,1);
-	transform: scale3d(1.2,1,1);
-	outline:none;
-}
-
 ul.menu li, h2 {
   transition: opacity .8s, padding .8s; 
 }
 
-ul.menu:hover li{
-  opacity: 0.3; 
-}
-
 h2{
   opacity: 0.7;
-}
-
-ul.menu li:hover, h2:hover {
-  padding-left:1rem;
-  opacity: 1;
-}
-
-ul li:hover svg{
-  transform: translate3d(0.2em, -0.2em, -0.2em);
 }
 
 /* SKILLS SECTION */
@@ -281,11 +216,6 @@ ul li:hover svg{
 }
 
 /** CLIENTS SECTION **/
-
-.text-blur-out:hover {
-	-webkit-animation: text-blur-out .7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: text-blur-out .7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-}
 
 
 @keyframes text-blur-out {
@@ -311,10 +241,7 @@ ul li:hover svg{
   transition: all .5s ease-in-out;
 }
 
-.slide-top:hover::before {
-  bottom: 0;
-  height: 100%;
-}
+
 
 
 
@@ -335,9 +262,65 @@ ul li:hover svg{
 }
 
 @media screen and (min-width: 1024px) {
+  .logo {
+  opacity:0.4;
+  transition:all .7s;
+}
+.logo:hover {
+  opacity:1;
+  cursor: pointer;
+}
   button.cta {
     opacity: 0.3;
   }
+  .btn-fill-effect:hover {
+    color: black;
+  }
+  ul.menu li:hover::before{
+    transition: transform 0.8s cubic-bezier(0.2,1,0.3,1);
+    transform: scale3d(1.2,1,1);
+    outline:none;
+  }
+  .btn-fill-effect:hover::before {
+    width: 100%;
+  }
+  button.cta:hover {
+    opacity: 1!important;
+    will-change: opacity;
+  }
+  svg.grain-background {
+    opacity: 0.3;
+    z-index: -2;
+    -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+    filter: invert(100%);
+    display: initial;
+  }
+  
+  svg.grain-background, rect {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .slide-top:hover::before {
+    bottom: 0;
+    height: 100%;
+  }
+  ul.menu:hover li{
+    opacity: 0.3; 
+  }
+  ul.menu li:hover, h2:hover {
+    padding-left:1rem;
+    opacity: 1;
+  }
+  
+  ul li:hover svg{
+    transform: translate3d(0.2em, -0.2em, -0.2em);
+  }
+  .text-blur-out:hover {
+    -webkit-animation: text-blur-out .7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            animation: text-blur-out .7s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  }
+  
 }
 
 

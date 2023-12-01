@@ -18,7 +18,7 @@ const ProjectImage: React.FC<ImageProps> = ({ name, image, cursorPos }) => {
     };
 
     return (
-        <figure style={imageStyle} className='fixed duration-300 transition opacity-0 group-hover:opacity-100'>
+        <figure style={imageStyle} className='fixed duration-300 transition opacity-0 lg:group-hover:opacity-100'>
             <Image 
                 src={image} 
                 alt={name} 
