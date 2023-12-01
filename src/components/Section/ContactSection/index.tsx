@@ -30,7 +30,7 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
 ];
     const { t } = useTranslation(lng, 'translation');
     const title = t ? t('contact.title', lng) : '';
-    const btn = t ? t('contact.btn', lng) : '';
+    const contactButton = t ? t('contact.btn', lng) : '';
     const cta = t ? t('contact.cta', { returnObjects: true }) : [];
     const ctaText = useTextRotation(cta as string[], 2000);
     const device = useDeviceDetection();
@@ -61,9 +61,14 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
                             { ctaText }
                         </TextTransition>.
                     </h1>
+                    <Link 
+                        href="mailto:ismael.jouhari@gmail.com" 
+                        className='inline-flex'
+                    >
                     <button className="btn-fill-effect border rounded-full text-l lg:text-3xl xl:text-4xl px-6 py-2 my-2 lg:my-5">
-                        { btn }
+                        { contactButton }
                     </button>
+                    </Link>
                 </div>
                 <div className='lg:self-end'>
                     <ul className='flex justify-center lg:menu lg:grid lg:grid-cols-2'>
