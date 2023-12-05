@@ -12,7 +12,6 @@ import SkillsSection from '@/components/Section/SkillsSection';
 import ClientsSection from '@/components/Section/ClientsSection';
 import ContactSection from '@/components/Section/ContactSection';
 
-
 interface HomepageProps {
   params: {
     lng: string;

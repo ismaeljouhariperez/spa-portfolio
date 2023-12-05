@@ -1,5 +1,3 @@
-'use client';
-
 import React from "react";
 
 interface FooterProps {
@@ -7,7 +5,8 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ isLastSection }) => {
-  const footerClassName = `z-10 flex fixed bottom-0 w-screen justify-center items-center h-16 transition-bg duration-500 delay-500 ${
+
+  const footerClassName = `fixed z-30 flex lg:h-16 bottom-0 w-screen justify-center items-center transition-bg duration-500 lg:delay-500 ${
     isLastSection ? 'bg-gray-200' : ' '
   }`;
 
@@ -16,7 +15,7 @@ const Footer: React.FC<FooterProps> = ({ isLastSection }) => {
   return (
     <footer className={footerClassName}>
       <p className="text-gray-600 text-sm">
-        Made with <span className={`transition duration-500 delay-500 ${heartClassName}`}>&#10084;</span> in Next.js | Design by Pauline Mischler
+        Made with <span className={`transition duration-500 lg:delay-500 ${heartClassName}`}>&#10084;</span> in Next.js | Design by Pauline Mischler
       </p>
     </footer>
   );

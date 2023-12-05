@@ -1,4 +1,4 @@
-import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
+import { MoonIcon } from "@heroicons/react/24/solid";
 import { useDarkMode } from "@/contexts/DarkModeContext";
 
 interface DarkModeToggleProps {
@@ -19,11 +19,6 @@ const DarkModeToggle: React.FC<DarkModeToggleProps> = () => {
                 ) : (
                 <MoonIcon className="w-6 h-6 text-gray-500 transition duration-700" />
             )}
-            {/* {isDarkMode ? (
-                <SunIcon className="w-6 h-6 text-yellow-500 hover:text-gray-500 transition duration-700" />
-            ) : (
-                <MoonIcon className="w-6 h-6 text-gray-500 hover:text-yellow-500 transition duration-700" />
-            )} */}
         </button>
     );
 };

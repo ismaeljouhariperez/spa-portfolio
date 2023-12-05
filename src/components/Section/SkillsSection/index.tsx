@@ -5,19 +5,6 @@ type SkillsListProps = {
     lng: string;
 };
 
-type Skill = {
-    name: string;
-    skills: string[];
-  };
-  
-  type SkillsList = Skill[];
-  
-  type SkillsTranslation = {
-    list: SkillsList;
-    title: string;
-  };
-  
-
 const SkillsSection: React.FC<SkillsListProps> = ({ lng }) => {
  
     const { t } = useTranslation(lng, 'translation');
@@ -42,7 +29,7 @@ const SkillsSection: React.FC<SkillsListProps> = ({ lng }) => {
                                 {list.skills.map((skill:string, index:number ) => (
                                     <li
                                         key={index}
-                                        className={`transition duration-300 ease-in-out transform lg:hover:-translate-y-1 md:hover:scale-105`}
+                                        className="transition duration-300 ease-in-out transform lg:hover:-translate-y-1 md:hover:scale-105"
                                     >
                                         {skill}
                                     </li>

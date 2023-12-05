@@ -10,9 +10,7 @@ interface NavLinkProps {
 const NavLinks: React.FC<NavLinkProps> = ({ lng, currentSection, navigateToSection }) => {
   const { t } = useTranslation(lng, 'translation');
 
-  if (!t) {
-    return <svg className="animate-spin h-5 w-5 mr-3  " viewBox="0 0 24 24"></svg>
-  }
+  if (!t) { return '' };
 
   const sections = [
     { id: 'section-2', label: 'nav.clients' },

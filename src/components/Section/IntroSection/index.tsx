@@ -16,7 +16,7 @@ const FirstSection: React.FC<Props> = ({ lng }) => {
   
   return (
     <div className="flex flex-col justify-between h-1/2">
-      <div className="">
+      <div>
         <h2 className="text-4xl lg:text-7xl text-white-200 my-4 ">
           <TypeAnimation
           sequence={[

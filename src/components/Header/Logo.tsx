@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react';
+import useDeviceDetection from '@/hooks/useDeviceDetection';
 
 interface LogoProps {
   currentSection?: number;
@@ -7,9 +8,10 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ currentSection, navigateToSection }) => {
+  const device = useDeviceDetection();
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-    navigateToSection('section-1');
+    device === 'mobile' ? null : navigateToSection('section-1');
   };
 
   return (

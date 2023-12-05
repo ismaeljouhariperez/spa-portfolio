@@ -45,10 +45,16 @@ const ClientsSection: React.FC<{ lng: string }> = ({ lng }) => {
                                     }}
                                     className={`relative w-full text-center my-2 transition-opacity group duration-700
                                     ${hoveredClient && hoveredClient !== client.name ? 'opacity-50' : 'opacity-100'}`} >
-                                    <Link href={client.url} >
-                                        <h3 className="uppercase text-3xl lg:text-5xl">{client.name}</h3>
+                                    <Link 
+                                        href={client.url} 
+                                    >
+                                        <h3 className="uppercase text-3xl lg:text-5xl">
+                                            {client.name}
+                                        </h3>
                                     </Link>
-                                    <em className={ `text-xl absolute bottom-0 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 ease-in-out ${ index % 2 === 0 ? 'right-0' : 'left-0' } `}>
+                                    <em 
+                                        className={ `text-xl absolute bottom-0 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 ease-in-out ${ index % 2 === 0 ? 'right-0' : 'left-0' } `}
+                                    >
                                         {client.description}
                                     </em>
                                 </li>

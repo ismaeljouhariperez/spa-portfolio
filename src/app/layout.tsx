@@ -14,8 +14,7 @@ export async function generateStaticParams(): Promise<{ params: { lng: string } 
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params : { lng: string };
-  // lng: string; // 'en' | 'fr'
+  params : { lng: string }; // 'en' | 'fr'
 }
 
 export const metadata: Metadata = {
@@ -23,12 +22,12 @@ export const metadata: Metadata = {
   description: 'Mon portfolio de développeur Full Stack avec Next.js'
 };
 
-const RootLayout: React.FC<RootLayoutProps> = ({ children, params:  { lng } }) => {
+const RootLayout: React.FC<RootLayoutProps> = ({ children, params: { lng } }) => {
   return (
     <html lang={lng} >
       <DarkModeProvider >
         <body className={`grain-overlay transition duration-700 ease-in-out ${inter.className}`}>
-          <GrainBackground />
+          {/* <GrainBackground /> */}
           {children}
         </body>
       </DarkModeProvider>
