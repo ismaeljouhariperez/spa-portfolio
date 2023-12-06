@@ -143,20 +143,20 @@ const handleTouchEnd = useCallback((e:TouchEvent) => {
   const endY = e.changedTouches[0].clientY;
   setTouchEndY(endY);
   const deltaY = touchStartY - endY;
+  console.log(`Touch end event: deltaY = ${deltaY}`);
 
   if (Math.abs(deltaY) === 0 && linkHrefRef.current) {
     window.location.href = linkHrefRef.current;
     linkHrefRef.current = null;
-  } else if (Math.abs(deltaY) !== 0 && canScroll) {
+  } else if (Math.abs(deltaY) !== 0) {
     e.preventDefault();
     const direction = deltaY > 0 ? 1 : -1;
     navigate(direction);
   }
-
   // Reset touch positions
   setTouchStartY(0);
   setTouchEndY(0);
-}, [touchStartY, canScroll, navigate]);
+}, [navigate, touchStartY]);
 /**
  * Use Effects
  */
