@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { scroller } from 'react-scroll';
 import { debounce } from 'lodash';
 import useDeviceDetection from '@/hooks/useDeviceDetection';
@@ -18,12 +18,11 @@ const useScroll = (totalSections: number) => {
   // Mobile
   const device = useDeviceDetection(); // Get device type
   const isMobile = device === 'mobile'; // Or however you determine if it's mobile
-  const [touchStartTime, setTouchStartTime] = useState(0);
-  let href = '';
 
   // Touch swipe event
-  let touchStartY = 0;
-  let touchEndY = 0;
+  const linkHrefRef = useRef<string | null>(null);
+  const [touchStartY, setTouchStartY] = useState(0);
+  const [touchEndY, setTouchEndY] = useState(0);
   let deltaY =  touchStartY - touchEndY;
 
   /**
@@ -121,38 +120,43 @@ const useScroll = (totalSections: number) => {
     navigate(direction);
   }, [canScroll, device, navigate]);
 
-  // Touch start event
-  const handleTouchStart = useCallback((e: TouchEvent) => {
-  const touchedElement = e.target;
-  touchStartY = e.touches[0].clientY;
+ // Touch start event
+ const handleTouchStart = useCallback((e:TouchEvent) => {
+  const touchedElement = e.target as HTMLElement;
   const linkElement = touchedElement.closest('a');
-  href = linkElement.getAttribute('href');
-  if (!linkElement && touchStartY > 100) {
-    // console.log(`Touch start event: touchStartY = ${e.touches[0]}`);
-    e.preventDefault()
-  } 
-  }, [navigate, touchStartY, touchEndY, canScroll, device]);
+  const startY = e.touches[0].clientY;
+  setTouchStartY(startY);
 
-  // Touch end event
-  const handleTouchEnd = useCallback((e: TouchEvent) => {
-    touchEndY = e.changedTouches[0].clientY; 
-    deltaY = touchStartY - touchEndY;
-    // add a delay to calculate deltaY
-    console.log(`canScroll = ${canScroll}, deltaY = ${deltaY}`);
-    if (Math.abs(deltaY) === 0) { 
-      console.log(`href = ${href}`)
-      window.location.href = href
-     }
-    else if (Math.abs(deltaY) != 0 && canScroll) {
-      e.preventDefault();
-      const direction = deltaY > 0 ? 1 : -1;
-      navigate(direction);
-      console.log(`Touch end event: direction = ${direction}`)
+  if (startY > 100) {
+    e.preventDefault();
+    if(linkElement){
+      linkHrefRef.current = linkElement.href;
     }
-    touchStartY = 0;
-    touchEndY = 0;
-  }, [navigate, canScroll, device]);
+    else{
+      linkHrefRef.current = null;
+    }
+  }
+}, []);
 
+// Touch end event
+const handleTouchEnd = useCallback((e:TouchEvent) => {
+  const endY = e.changedTouches[0].clientY;
+  setTouchEndY(endY);
+  const deltaY = touchStartY - endY;
+
+  if (Math.abs(deltaY) === 0 && linkHrefRef.current) {
+    window.location.href = linkHrefRef.current;
+    linkHrefRef.current = null;
+  } else if (Math.abs(deltaY) !== 0 && canScroll) {
+    e.preventDefault();
+    const direction = deltaY > 0 ? 1 : -1;
+    navigate(direction);
+  }
+
+  // Reset touch positions
+  setTouchStartY(0);
+  setTouchEndY(0);
+}, [touchStartY, canScroll, navigate]);
 /**
  * Use Effects
  */
