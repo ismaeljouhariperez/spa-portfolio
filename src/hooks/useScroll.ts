@@ -11,13 +11,14 @@ const useScroll = (totalSections: number) => {
 
   // All
   const [currentSection, setCurrentSection] = useState(1);
+  const [canScroll, setCanScroll] = useState(true);
   const sectionIds = Array.from({ length: totalSections }, (_, i) => `section-${i + 1}`);
   let ScrollDuration = 1000;
 
   // Mobile
   const device = useDeviceDetection(); // Get device type
   const isMobile = device === 'mobile'; // Or however you determine if it's mobile
-  const [canScroll, setCanScroll] = useState(true);
+  const [touchStartTime, setTouchStartTime] = useState(0);
 
   // Touch swipe event
   let touchStartY = 0;
@@ -121,9 +122,15 @@ const useScroll = (totalSections: number) => {
 
   // Touch start event
   const handleTouchStart = useCallback((e: TouchEvent) => {
-    touchStartY = e.touches[0].clientY;
-    // console.log(`Touch start event: touchStartY = ${touchStartY}`);
-    if (touchStartY > 100) { e.preventDefault() } // Allow click on menu
+  const touchedElement = e.target;
+  touchStartY = e.touches[0].clientY;
+  // Check if the touched element is a link or within a link
+  const linkElement = touchedElement.closest('a');
+  if (!linkElement && touchStartY > 100) {
+    // console.log(`Touch start event: touchStartY = ${e.touches[0]}`);
+    'ok'
+    e.preventDefault()
+  } 
   }, [navigate, touchStartY, touchEndY, canScroll, device]);
 
   // Touch end event
@@ -132,7 +139,8 @@ const useScroll = (totalSections: number) => {
     deltaY = touchStartY - touchEndY;
     // add a delay to calculate deltaY
     console.log(`canScroll = ${canScroll}, deltaY = ${deltaY}`);
-    if (Math.abs(deltaY) != 0 && canScroll) {
+    if (Math.abs(deltaY) === 0) { e.stopPropagation() } // Allow click on menu
+    else if (Math.abs(deltaY) != 0 && canScroll) {
       e.preventDefault();
       const direction = deltaY > 0 ? 1 : -1;
       navigate(direction);
