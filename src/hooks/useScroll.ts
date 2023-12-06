@@ -19,6 +19,7 @@ const useScroll = (totalSections: number) => {
   const device = useDeviceDetection(); // Get device type
   const isMobile = device === 'mobile'; // Or however you determine if it's mobile
   const [touchStartTime, setTouchStartTime] = useState(0);
+  let href = '';
 
   // Touch swipe event
   let touchStartY = 0;
@@ -124,11 +125,10 @@ const useScroll = (totalSections: number) => {
   const handleTouchStart = useCallback((e: TouchEvent) => {
   const touchedElement = e.target;
   touchStartY = e.touches[0].clientY;
-  // Check if the touched element is a link or within a link
   const linkElement = touchedElement.closest('a');
+  href = linkElement.getAttribute('href');
   if (!linkElement && touchStartY > 100) {
     // console.log(`Touch start event: touchStartY = ${e.touches[0]}`);
-    'ok'
     e.preventDefault()
   } 
   }, [navigate, touchStartY, touchEndY, canScroll, device]);
@@ -139,7 +139,10 @@ const useScroll = (totalSections: number) => {
     deltaY = touchStartY - touchEndY;
     // add a delay to calculate deltaY
     console.log(`canScroll = ${canScroll}, deltaY = ${deltaY}`);
-    if (Math.abs(deltaY) === 0) { e.stopPropagation() } // Allow click on menu
+    if (Math.abs(deltaY) === 0) { 
+      console.log(`href = ${href}`)
+      window.location.href = href
+     }
     else if (Math.abs(deltaY) != 0 && canScroll) {
       e.preventDefault();
       const direction = deltaY > 0 ? 1 : -1;
