@@ -6,18 +6,23 @@ import useDeviceDetection from '@/hooks/useDeviceDetection';
 const useScroll = (totalSections: number) => {
 
   /**
-   * Constants and state
+   * Constants, variables and state
    */
 
   // All
   const [currentSection, setCurrentSection] = useState(1);
   const sectionIds = Array.from({ length: totalSections }, (_, i) => `section-${i + 1}`);
-  const ScrollDuration = 1000;
+  let ScrollDuration = 1000;
 
   // Mobile
   const device = useDeviceDetection(); // Get device type
   const isMobile = device === 'mobile'; // Or however you determine if it's mobile
   const [canScroll, setCanScroll] = useState(true);
+
+  // Touch swipe event
+  let touchStartY = 0;
+  let touchEndY = 0;
+  let deltaY =  touchStartY - touchEndY;
 
   /**
    * Helpers
@@ -31,29 +36,30 @@ const useScroll = (totalSections: number) => {
 
   // Scroll to a section
   const scrollToSection = useCallback((sectionNumber: number) => {
+    isMobile? ScrollDuration = 800 : ScrollDuration = 1000;
     scroller.scrollTo(`section-${sectionNumber}`, {
       duration: ScrollDuration,
       delay: 0,
       smooth: 'easeInOutQuart',
     });
-  }, [ScrollDuration]);
+  }, [ScrollDuration, isMobile]);
 
   // Navigate to a section (with optional click bypass)
   const navigateToSection = useCallback((sectionId: string | number, clicked: boolean = false) => {
     // console.log(`canScroll = ${canScroll}, clicked = ${clicked}`);
     if (!canScroll && !clicked) return;
-
     const sectionNumber = typeof sectionId === 'string' ? parseInt(sectionId.split('-')[1], 10) : sectionId;
-    isMobile ? sectionNumber === 1 : setCurrentSection(sectionNumber);
+    setCurrentSection(sectionNumber);
     scrollToSection(sectionNumber);
 
-    if (!clicked) {
+    if (!clicked && !isMobile) {
+      console.log('Preventing scroll');
       setCanScroll(false);
       setTimeout(() => {
         setCanScroll(true);
       }, ScrollDuration);
     }
-  }, [canScroll, isMobile, scrollToSection]);
+  }, [ScrollDuration, canScroll, isMobile, scrollToSection]);
 
   /**
    * Main functions
@@ -68,6 +74,7 @@ const useScroll = (totalSections: number) => {
   // Navigate function
   const navigate = useCallback((direction: number) => {
     if (!canScroll) return;
+    // console.log(`Navigate function: direction = ${direction} currentSection = ${currentSection} targetSection = ${currentSection + direction}`);
     const targetSection = Math.min(Math.max(currentSection + direction, 1), totalSections);
     navigateToSection(targetSection);
   }, [currentSection, canScroll, totalSections, navigateToSection]);
@@ -85,18 +92,21 @@ const useScroll = (totalSections: number) => {
         }
       }
     });
-    console.log('Detected current section:', currentSectionIndex);
+    // console.log('Detected current section:', currentSectionIndex);
     debouncedSetCurrentSection(currentSectionIndex); // Use the debounced function
   }, [sectionIds, debouncedSetCurrentSection]);
 
   // Keyboard events
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (device === 'mobile' || !canScroll) { 
+      return; //
+    }  
     if (!['ArrowUp', 'ArrowDown'].includes(e.key)) return;
     e.preventDefault();
     const direction = e.key === 'ArrowUp' ? -1 : 1;
     navigate(direction);
     console.log(`Keyboard event: ${e.key} = navigate(${direction})`);
-  }, [navigate]);
+  }, [canScroll, device, navigate]);
 
   // Handle wheel scroll event
   const handleScroll = useCallback((e: WheelEvent) => {
@@ -109,37 +119,37 @@ const useScroll = (totalSections: number) => {
     navigate(direction);
   }, [canScroll, device, navigate]);
 
-  // Touch swipe event
-  let touchStartY = 0;
-  let touchEndY = 0;
-
   // Touch start event
   const handleTouchStart = useCallback((e: TouchEvent) => {
     touchStartY = e.touches[0].clientY;
     // console.log(`Touch start event: touchStartY = ${touchStartY}`);
-    touchStartY > 100 ? e.preventDefault() : null;
-  }, []);
+    if (touchStartY > 100) { e.preventDefault() } // Allow click on menu
+  }, [navigate, touchStartY, touchEndY, canScroll, device]);
 
   // Touch end event
   const handleTouchEnd = useCallback((e: TouchEvent) => {
-    touchEndY = e.changedTouches[0].clientY;   
-    const deltaY =  touchStartY - touchEndY;
-    if (deltaY != 0) {
+    touchEndY = e.changedTouches[0].clientY; 
+    deltaY = touchStartY - touchEndY;
+    // add a delay to calculate deltaY
+    console.log(`canScroll = ${canScroll}, deltaY = ${deltaY}`);
+    if (Math.abs(deltaY) != 0 && canScroll) {
       e.preventDefault();
-      const dir = deltaY > 0 ? 1 : -1;
-      navigate(dir);
-      console.log(`Touch end event: deltaY = ${deltaY}`);
+      const direction = deltaY > 0 ? 1 : -1;
+      navigate(direction);
+      console.log(`Touch end event: direction = ${direction}`)
     }
-  }, [navigate]);
+    touchStartY = 0;
+    touchEndY = 0;
+  }, [navigate, canScroll, device]);
 
 /**
  * Use Effects
  */
 
   // Log current section state
-  useEffect(() => {
-    console.log('Current section state updated:', currentSection);
-  }, [currentSection]);
+  // useEffect(() => {
+  //   console.log('Current section state updated:', currentSection);
+  // }, [currentSection]);
 
   // Keyboard events
   useEffect(() => {
@@ -170,11 +180,9 @@ const useScroll = (totalSections: number) => {
       checkCurrentSection();
       window.addEventListener('resize', checkCurrentSection);
       window.addEventListener('scroll', checkCurrentSection);
-      // window.addEventListener('touchstart', checkCurrentSection);
       return () => {
         window.removeEventListener('resize', checkCurrentSection);
         window.removeEventListener('scroll', checkCurrentSection);
-        // window.removeEventListener('touchstart', checkCurrentSection);
       };
     }, [checkCurrentSection]);
 
@@ -199,6 +207,7 @@ const useScroll = (totalSections: number) => {
       window.removeEventListener('touchend', handleTouchEnd);
     };
   }, [handleTouchStart, handleTouchEnd]);
+  
 
   return { currentSection, navigateToSection };
 };
