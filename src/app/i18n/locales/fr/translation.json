@@ -5,8 +5,8 @@
   "nav.profile"         : "Profil",
   "nav.contact"         : "Contact",
   "section.first.h2"    : "Bienvenue, ici Ismaël.",
-  "section.first.h3"    : "Full Stack Developer",
-  "section.first.p"     : "En formation sur Next, Typescript et React. Ouvert à de nouvelles opportunités.",
+  "section.first.h3"    : "Developpeur Front-End",
+  "section.first.p"     : "En formation sur Ruby, Next, TS et React. Ouvert à de nouvelles opportunités.",
   "section.first.btn"   : "Me Contacter",
   "profile.pastlives" : [
     "étudiant",
@@ -21,11 +21,11 @@
   "skills.list" : [
     {
       "name": "Frameworks",
-      "skills": ["React", "Laravel", "Next", "Tailwind"]
+      "skills": ["React", "Rails", "Next", "Tailwind"]
     },
     {
       "name": "Languages",
-      "skills": ["PHP", "Javascript", "Typescript"]
+      "skills": ["Ruby", "PHP", "Javascript", "Typescript"]
     },
     {
       "name": "Apps",
