@@ -6,7 +6,7 @@
     "nav.contact"       : "Contact",
     "section.first.h2"  : "Hello World, I'm Ismaël.",
     "section.first.h3"  : "Front End Developer.",
-    "section.first.p"   : "Currently learning Ruby, Next, TS and React. Open to work. Based in Bordeaux, France.",
+    "section.first.p"   : "Currently learning React, Typescript & Node. Open to work. Based in Bordeaux, France.",
     "section.first.btn" : "Contact me",
     "profile.pastlives" : [
       "a student",
@@ -46,11 +46,8 @@
     "contact.btn": "Contact Me",
     "projects.title" : "Recent projects",
     "profile.description.first": "I am Ismaël, with more than three decades of navigating the dynamic currents of life's great journey.",
-    "profile.description.second": "With a fervent passion for syntax in all its forms, from the elegance of literature to the precision of code, my journey has led me from a three-year tenure in an agency to a new chapter as a developer.",
+    "profile.description.second": "With a fervent passion for syntax in all its forms, from the elegance of literature to the precision of code, my journey has led me from more than four-year tenure in web agencies to a new chapter as a developer.",
     "profile.description.third": "In my past lives, I have assumed many roles, as",
     "clients.title" : "Clients"
 
   }
-  
-
-   

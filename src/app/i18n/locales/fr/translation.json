@@ -6,7 +6,7 @@
   "nav.contact"         : "Contact",
   "section.first.h2"    : "Bienvenue, ici Ismaël.",
   "section.first.h3"    : "Developpeur Front-End",
-  "section.first.p"     : "En formation sur Ruby, Next, TS et React. Ouvert à de nouvelles opportunités.",
+  "section.first.p"     : "En formation sur React, Typescript & Node. Ouvert à de nouvelles opportunités.",
   "section.first.btn"   : "Me Contacter",
   "profile.pastlives" : [
     "étudiant",
@@ -25,7 +25,7 @@
     },
     {
       "name": "Languages",
-      "skills": ["Ruby", "PHP", "Javascript", "Typescript"]
+      "skills": ["Ruby", "PHP", "JS", "Typescript"]
     },
     {
       "name": "Apps",
@@ -48,11 +48,8 @@
   "contact.btn" : "Me contacter",
   "projects.title" : "Projets récents",
   "profile.description.first" : "Je m'appelle Ismaël et j'ai déjà plus de trente ans d'expérience dans ce grand torrent vers l'abîme que l'on appelle la vie.",
-  "profile.description.second" : "Passionné de syntaxes, écrites et orales, littéraires ou informatiques, j'ai passé plus de 3 ans en agence avant de me reconvertir en tant que développeur. Désormais je vois la vie en vert et noir, un peu comme dans Matrix.",
+  "profile.description.second" : "Passionné de syntaxes, écrites et orales, littéraires ou informatiques, j'ai passé plus de 4 ans en agence web avant de me reconvertir en tant que développeur. Désormais je vois la vie en vert et noir, un peu comme dans Matrix.",
   "profile.description.third" : "Dans des vies antérieures, j'ai été",
   "clients.title" : "Mes clients"
 
 }
-
-
- 
