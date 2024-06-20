@@ -30,8 +30,9 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
     };
 
     const projects = [
-        { name: 'ismaelphotos', url: 'https://ismael.photos', image: '/projet-5.png' },
-        { name: 'webagency', url: 'https://projet-1-oc.ismaelperez.cc', image: '/projet-4.png' },
+        { name: 'videoclub', url: 'https://videoclub.cloud', image: '/projet-6.png' },
+        { name: 'modernesolitude', url: 'https://modernesolitude.fr', image: '/projet-5.png' },
+        { name: 'ismaelphotos', url: 'https://ismael.photos', image: '/projet-4.png' },
         { name: 'ville_ireki', url: 'https://drive.google.com/file/d/1KZU9ie8-IYLOPCt37yexFrEqGKXprLxX/view', image: '/projet-2.png' },
         { name: 'bikeluxembourg', url: 'https://projet-3-oc.ismaelperez.cc', image: '/projet-3.png' },
         { name: 'jeanforteroche', url: 'https://drive.google.com/file/d/1WxDu-bajdjOUu9fsz9848B_s6QruOged/view', image: '/projet-1.png' },
@@ -45,7 +46,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
                 </h2>
                 <ul className="menu">
                     {projects.map((project, index) => (
-                        <li key={index} 
+                        <li key={index}
                             onMouseMove={device === 'desktop' ? (e) => handleMouseMove(e, project.name) : undefined}
                             onMouseLeave={device === 'desktop' ? handleMouseLeave : undefined}
                             className="relative text-l lg:text-2xl xl:text-3xl flex group">
