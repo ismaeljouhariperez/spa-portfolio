@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SPA Portfolio - Ismaël Perez
 
-## Getting Started
+Welcome to the GitHub repository for my personal portfolio website, hosted at [ismaelperez.cc](https://ismaelperez.cc). This website showcases my career journey, recent projects, and skills as a front-end developer, with a strong focus on creating engaging digital experiences.
 
-First, run the development server:
+## About the Website
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This website is a one-scroll full-page application developed using React, Next.js, and styled with Tailwind CSS. It features a dark mode toggle and supports both English and French languages through the i18n plugin.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Single Page Application (SPA)**: Smooth, one-scroll navigation to enhance user experience.
+- **Multi-language Support**: Built-in language switcher to toggle between English and French.
+- **Dark Mode**: An accessible toggle to switch between light and dark themes.
+- **Responsive Design**: Ensures a great experience across various devices and screen sizes.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Project Structure
 
-## Learn More
+- `/public` - Contains the static files like images and icons.
+- `/src` - Source files for the React components, styles, and configuration.
+- `/styles` - Global styles and Tailwind configuration.
+- `.next` - Configuration files for Next.js.
 
-To learn more about Next.js, take a look at the following resources:
+## About Me
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I'm Ismaël Perez, a passionate front-end developer with a keen eye for crafting engaging digital experiences. After retraining as a developer 3 years ago, I recently graduated from the web developer bootcamp at Le Wagon in Bordeaux, France. My skills span PHP (Laravel), Ruby (Rails), JS (React), Next.js and TypeScript. With dual French and Spanish citizenship, I bring diverse cultural insights into every project I undertake.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Current Focus
 
-## Deploy on Vercel
+- **Skill Enhancement**: I am currently expanding my technical expertise into back-end development with Node.js and Express.js.
+- **Personal Projects**: I'm developing a platform to exhibit an analog photography project that captures scenes from Peru, Bolivia, Argentina, Mexico, and Colombia.
+- **Career Opportunities**: Actively seeking front-end developer roles in Bordeaux, particularly in sectors linked to culture, photography, art, travel, and innovative technology.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact & Social
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feel free to connect with me through the following channels:
+
+- **LinkedIn**: [Visit my LinkedIn profile](https://linkedin.com/in/ismael-jhri)
+- **Email**: [Send me an email](mailto:ismael.jouhari@gmail.com)
+- **Photography Site**: [Visit ismael.photos](https://ismael.photos)
+- **Online Most Recent Exhibition**: [Explore Moderne Solitude](https://modernesolitude.fr)
+
+Thank you for visiting my portfolio repository!
