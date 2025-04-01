@@ -1,53 +1,66 @@
 {
-    "nav.clients"       : "Clients",
-    "nav.skills"        : "Skills",
-    "nav.projects"      : "Projects",
-    "nav.profile"       : "Profile",
-    "nav.contact"       : "Contact",
-    "section.first.h2"  : "Hello World, I'm Ismaël.",
-    "section.first.h3"  : "Front End Developer.",
-    "section.first.p"   : "Currently learning React, Typescript & Node. Open to work. Based in Bordeaux, France.",
-    "section.first.btn" : "Contact me",
-    "profile.pastlives" : [
-      "a student",
-      "an intern",
-      "project manager",
-      "assistant to the regional manager",
-      "photographer"
-    ],
-    "profile.cv" : "My LinkedIn",
-    "profile.about" : "About me",
-    "skills.title": "My skills",
-    "skills.list" : [
-      {
-        "name": "Frameworks",
-        "skills": ["React", "Rails", "Next"]
-      },
-      {
-        "name": "Languages",
-        "skills": ["Ruby", "PHP", "Javascript", "Typescript"]
-      },
-      {
-        "name": "Apps",
-        "skills": ["Trello", "Jira", "Notion"]
-      },
-      {
-        "name": "Project",
-        "skills": ["Agile", "Scrum", "V-Model"]
-      }
-    ],
-    "contact.title": "You can write to me",
-    "contact.cta": [
-      "over here",
-      "just below",
-      "over there",
-      "below"
-    ],
-    "contact.btn": "Contact Me",
-    "projects.title" : "Recent projects",
-    "profile.description.first": "I am Ismaël, with more than three decades of navigating the dynamic currents of life's great journey.",
-    "profile.description.second": "With a fervent passion for syntax in all its forms, from the elegance of literature to the precision of code, my journey has led me from more than four-year tenure in web agencies to a new chapter as a developer.",
-    "profile.description.third": "In my past lives, I have assumed many roles, as",
-    "clients.title" : "Clients"
-
-  }
+  "nav.clients": "Clients",
+  "nav.skills": "Skills",
+  "nav.projects": "Projects",
+  "nav.profile": "Profile",
+  "nav.contact": "Contact",
+  "section.first.h2": "Hello World, I'm Ismaël.",
+  "section.first.h3": "Front End Developer.",
+  "section.first.p": "Currently learning React, Typescript & Node. Open to work. Based in Bordeaux, France.",
+  "section.first.btn": "Contact me",
+  "profile.pastlives": [
+    "a student",
+    "an intern",
+    "project owner",
+    "assistant to the regional manager",
+    "streetphotographer"
+  ],
+  "profile.cv": "My LinkedIn",
+  "profile.about": "About me",
+  "skills.title": "My skills",
+  "skills.list": [
+    {
+      "name": "Frontend",
+      "skills": [
+        "React",
+        "Typescript",
+        "Next.js",
+        "Tailwind CSS",
+        "GSAP",
+        "Framer Motion",
+        "Zustand",
+        "Tanstack Query"
+      ]
+    },
+    {
+      "name": "Backend",
+      "skills": [
+        "Ruby on Rails",
+        "Node.js",
+        "Python",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+        "CI/CD"
+      ]
+    },
+    {
+      "name": "Apps",
+      "skills": ["Trello", "Jira", "Notion", "Figma", "Cursor", "GitKraken"]
+    },
+    {
+      "name": "Projet",
+      "skills": ["Agile", "Shape Up"]
+    }
+  ],
+  "contact.title": "You can write to me",
+  "contact.cta": ["over here", "just below", "over there", "below"],
+  "contact.btn": "Contact Me",
+  "projects.title": "Recent projects",
+  "profile.description.first": "I am Ismaël, with more than three decades(-ish) of navigating the dynamic currents of life's great journey.",
+  "profile.description.second": "With a fervent passion for syntax in all its forms, from the elegance of literature to the precision of code, I am a developer with 4 years of experience in web development. My expertise spans various technologies and frameworks, allowing me to craft engaging user experiences.",
+  "profile.description.third": "In my past lives, I have assumed many roles, as",
+  "clients.title": "Clients",
+  "ema.name": "ema (in progress)",
+  "analog.name": "The analog project (in progress)"
+}

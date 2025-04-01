@@ -1,43 +1,60 @@
 {
-  "nav.clients"         : "Clients",
-  "nav.skills"          : "Libs",
-  "nav.projects"        : "Projets",
-  "nav.profile"         : "Profil",
-  "nav.contact"         : "Contact",
-  "section.first.h2"    : "Bienvenue, ici Ismaël.",
-  "section.first.h3"    : "Developpeur Front-End",
-  "section.first.p"     : "En formation sur React, Typescript & Node. Ouvert à de nouvelles opportunités.",
-  "section.first.btn"   : "Me Contacter",
-  "profile.pastlives" : [
+  "nav.clients": "Clients",
+  "nav.skills": "Libs",
+  "nav.projects": "Projets",
+  "nav.profile": "Profil",
+  "nav.contact": "Contact",
+  "section.first.h2": "Bienvenue, ici Ismaël.",
+  "section.first.h3": "Developpeur Front-End",
+  "section.first.p": "En formation sur React, Typescript & Node. Ouvert à de nouvelles opportunités.",
+  "section.first.btn": "Me Contacter",
+  "profile.pastlives": [
     "étudiant",
     "stagiaire",
-    "chef de projet",
-    "co-manager",
-    "photographe"
+    "photographe de rue",
+    "product owner",
+    "co-manager"
   ],
-  "profile.cv" : "Mon LinkedIn",
+  "profile.cv": "Mon LinkedIn",
   "profile.about": "À propos de moi",
   "skills.title": "Mes compétences",
-  "skills.list" : [
+  "skills.list": [
     {
-      "name": "Frameworks",
-      "skills": ["React", "Rails", "Next", "Tailwind"]
+      "name": "Frontend",
+      "skills": [
+        "React",
+        "Typescript",
+        "Next.js",
+        "Tailwind CSS",
+        "GSAP",
+        "Framer Motion",
+        "Zustand",
+        "Tanstack Query"
+      ]
     },
     {
-      "name": "Languages",
-      "skills": ["Ruby", "PHP", "JS", "Typescript"]
+      "name": "Backend",
+      "skills": [
+        "Ruby on Rails",
+        "Node.js",
+        "Python",
+        "PostgreSQL",
+        "Docker",
+        "AWS",
+        "CI/CD"
+      ]
     },
     {
       "name": "Apps",
-      "skills": ["Trello", "Jira", "Notion", "Figma", "Adobe XD"]
+      "skills": ["Trello", "Jira", "Notion", "Figma", "Cursor", "GitKraken"]
     },
     {
       "name": "Projet",
-      "skills": ["Agile", "Scrum", "V-Model"]
+      "skills": ["Agile", "Shape Up"]
     }
   ],
-  "contact.title" : "Vous pouvez m'écrire",
-  "contact.cta" : [
+  "contact.title": "Vous pouvez m'écrire",
+  "contact.cta": [
     "par ici",
     "en bas",
     "juste ici",
@@ -45,11 +62,12 @@
     "par-là",
     "ci-dessous"
   ],
-  "contact.btn" : "Me contacter",
-  "projects.title" : "Projets récents",
-  "profile.description.first" : "Je m'appelle Ismaël et j'ai déjà plus de trente ans d'expérience dans ce grand torrent vers l'abîme que l'on appelle la vie.",
-  "profile.description.second" : "Passionné de syntaxes, écrites et orales, littéraires ou informatiques, j'ai passé plus de 4 ans en agence web avant de me reconvertir en tant que développeur. Désormais je vois la vie en vert et noir, un peu comme dans Matrix.",
-  "profile.description.third" : "Dans des vies antérieures, j'ai été",
-  "clients.title" : "Mes clients"
-
+  "contact.btn": "Me contacter",
+  "projects.title": "Projets récents",
+  "profile.description.first": "Je m'appelle Ismaël et j'ai déjà plus de trente (quatre) ans d'expérience dans ce grand torrent vers l'abîme que l'on appelle la vie.",
+  "profile.description.second": "Passionné de syntaxes, écrites et orales, littéraires ou informatiques, je suis développeur avec 4 ans d'expérience en développement web. Mes compétences couvrent diverses technologies et frameworks, me permettant de créer des expériences utilisateurs engageantes.",
+  "profile.description.third": "Dans des vies antérieures, j'ai été",
+  "clients.title": "Mes clients",
+  "ema.name": "ema (en cours)",
+  "analog.name": "The analog project (en cours)"
 }
