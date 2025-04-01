@@ -77,7 +77,7 @@ const ContactSection: React.FC<ContactProps> = ({ lng }) => {
       <li className="flex relative group" key={index}>
         <Link href={contact.url} className="flex items-center" passHref>
           <h2 className="mx-5 text-2xl">{contact.name}</h2>
-          <ArrowUpRightIcon className="w-6 h-6 transition duration-700 transition ease-in-out " />
+          <ArrowUpRightIcon className="w-6 h-6 duration-700 transition ease-in-out " />
         </Link>
       </li>
     );

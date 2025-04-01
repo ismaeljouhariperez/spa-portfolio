@@ -5,8 +5,8 @@
   "nav.profile": "Profil",
   "nav.contact": "Contact",
   "section.first.h2": "Bienvenue, ici Ismaël.",
-  "section.first.h3": "Developpeur Front-End",
-  "section.first.p": "En formation sur React, Typescript & Node. Ouvert à de nouvelles opportunités.",
+  "section.first.h3": "Developpeur Full-Stack",
+  "section.first.p": "J’explore LangChain et la conception d’interfaces augmentées par l’IA.",
   "section.first.btn": "Me Contacter",
   "profile.pastlives": [
     "étudiant",
@@ -39,9 +39,12 @@
         "Node.js",
         "Python",
         "PostgreSQL",
-        "Docker",
         "AWS",
-        "CI/CD"
+        "FastAPI",
+        "RAG",
+        "Weaviate, Pinecone",
+        "Docker",
+        "CI/CD, GitHub Actions"
       ]
     },
     {

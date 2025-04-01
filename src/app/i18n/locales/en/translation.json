@@ -5,8 +5,8 @@
   "nav.profile": "Profile",
   "nav.contact": "Contact",
   "section.first.h2": "Hello World, I'm Ismaël.",
-  "section.first.h3": "Front End Developer.",
-  "section.first.p": "Currently learning React, Typescript & Node. Open to work. Based in Bordeaux, France.",
+  "section.first.h3": "Full-stack Developer.",
+  "section.first.p": "Experimenting with LangChain and AI tooling. Based in Bordeaux, France.",
   "section.first.btn": "Contact me",
   "profile.pastlives": [
     "a student",
@@ -39,9 +39,12 @@
         "Node.js",
         "Python",
         "PostgreSQL",
-        "Docker",
         "AWS",
-        "CI/CD"
+        "FastAPI",
+        "RAG",
+        "Weaviate, Pinecone",
+        "Docker",
+        "CI/CD, GitHub Actions"
       ]
     },
     {
