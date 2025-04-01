@@ -20,6 +20,28 @@ This website is a one-scroll full-page application developed using React, Next.j
 - `/styles` - Global styles and Tailwind configuration.
 - `.next` - Configuration files for Next.js.
 
+### Installation and Setup
+
+To run this project locally, follow these steps:
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/spa-portfolio.git
+cd spa-portfolio
+
+# Install dependencies with pnpm
+pnpm install
+
+# Run the development server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Start the production server
+pnpm start
+```
+
 ## About Me
 
 I'm Ismaël Perez, a passionate front-end developer with a keen eye for crafting engaging digital experiences. After retraining as a developer 3 years ago, I recently graduated from the web developer bootcamp at Le Wagon in Bordeaux, France. My skills span PHP (Laravel), Ruby (Rails), JS (React), Next.js and TypeScript. With dual French and Spanish citizenship, I bring diverse cultural insights into every project I undertake.
