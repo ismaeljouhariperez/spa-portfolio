@@ -84,7 +84,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
               </Link>
               <ProjectImage
                 name={project.name}
-                image={project.image}
+                image={project.image ?? "/default-project.png"}
                 cursorPos={cursorPos}
               />
             </li>
