@@ -32,12 +32,12 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
     {
       name: typeof t === "function" ? t("analog.name") : "analog",
       url: "https://github.com/ismaeljouhariperez/analog",
-      image: "/default-project.png",
+      image: null,
     },
     {
       name: typeof t === "function" ? t("ema.name") : "ema",
       url: "https://github.com/ismaeljouhariperez/ema-ai",
-      image: "/default-project.png",
+      image: null,
     },
     {
       name: "videoclub",
@@ -84,7 +84,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ lng }) => {
               </Link>
               <ProjectImage
                 name={project.name}
-                image={project.image ?? "/default-project.png"}
+                image={project.image ?? ""}
                 cursorPos={cursorPos}
               />
             </li>
